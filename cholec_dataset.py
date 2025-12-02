@@ -2,12 +2,18 @@ from torch.utils.data import Dataset
 import torch
 import os
 from PIL import Image
+import matplotlib.pyplot as plt
+import re
+
+def numerical_sort(value):
+    numbers=re.findall(r'\d+', value)
+    return int(numbers[0]) if numbers else 0
 
 class CholecDataset(Dataset):
     def __init__(self, image_dir, tool_file, phase_anticipation_file, transform=None):
         self.image_dir = image_dir
         self.transform = transform
-        self.image_names = os.listdir(image_dir)
+        self.image_names = sorted(os.listdir(image_dir), key=numerical_sort)
         # 读取 tool_annotations
         self.tool_dict = {}
         with open(tool_file, 'r') as f:
@@ -48,10 +54,18 @@ if __name__ == "__main__":
         transform=None
     )
     print(f"数据集样本总数: {len(dataset)}")
-    for i in range(3):
+    for i in range(4):
         image, tool, phase = dataset[i]
         print(f"样本 {i}:")
         print(f"  图片名: {dataset.image_names[i]}")
         print(f"  tool: {tool}")
         print(f"  phase: {phase}")
         print(f"  图片尺寸: {image.size if hasattr(image, 'size') else 'N/A'}")
+        # 可视化图片
+        plt.figure(figsize=(3,3))
+        plt.imshow(image)
+        plt.title(f"样本 {i}: {dataset.image_names[i]}")
+        plt.axis('off')
+        plt.show()
+
+
