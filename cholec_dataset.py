@@ -48,7 +48,7 @@ class CholecDataset(Dataset):
 # 测试代码
 if __name__ == "__main__":
     dataset = CholecDataset(
-        image_dir=r'D:\srtp\data\数据集\code_80\BIMask_ss\1',
+        image_dir=r'D:\srtp\data\数据集\code_80\ss_Bimasks_pos_ep10\1',
         tool_file=r'D:\srtp\data\数据集\code_80\tool_annotations\video01-tool.txt',
         phase_anticipation_file=r'D:\srtp\data\数据集\code_80\phase_anticipation_annotation\video01-phase.txt',
         transform=None
