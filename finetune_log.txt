@@ -1,0 +1,119 @@
+nohup: ignoring input
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+train_paths_80  :  86344
+train_labels_80 :  86344
+valid_paths_80  :  21445
+valid_labels_80 :  21445
+test_paths_80  :  98234
+test_labels_80 :  98234
+train_paths_80_seg  :  86344
+valid_paths_80_seg  :      0
+test_paths_80_seg  :  98234
+num train start idx 80:  86344
+num of all train use:  86344
+num of all test use:  98234
+-----epoch: 0-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 165.5003
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:    0 train in:  2m46s train loss(phase): 0.0794 train accu(phase): 0.9750 test in:  1m45s test loss(phase): 0.8155 test accu(phase): 0.8029 test in_MAE(phase): 1.3662 test pMAE(phase): 1.5708 test eMAE(phase): 1.9409
+best_epoch 0
+-----epoch: 1-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 163.4400
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:    1 train in:  2m43s train loss(phase): 0.0533 train accu(phase): 0.9822 test in:  1m41s test loss(phase): 0.8726 test accu(phase): 0.7973 test in_MAE(phase): 1.3602 test pMAE(phase): 1.5685 test eMAE(phase): 1.9669
+best_epoch 1
+-----epoch: 2-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 163.5364
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:    2 train in:  2m44s train loss(phase): 0.0470 train accu(phase): 0.9840 test in:  1m44s test loss(phase): 0.8789 test accu(phase): 0.7971 test in_MAE(phase): 1.3474 test pMAE(phase): 1.5620 test eMAE(phase): 1.9067
+best_epoch 2
+-----epoch: 3-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 164.9907
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:    3 train in:  2m45s train loss(phase): 0.0410 train accu(phase): 0.9863 test in:  1m43s test loss(phase): 0.8770 test accu(phase): 0.8007 test in_MAE(phase): 1.3540 test pMAE(phase): 1.5736 test eMAE(phase): 1.9406
+best_epoch 3
+-----epoch: 4-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 166.8582
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:    4 train in:  2m47s train loss(phase): 0.0376 train accu(phase): 0.9869 test in:  1m43s test loss(phase): 0.8670 test accu(phase): 0.8040 test in_MAE(phase): 1.3617 test pMAE(phase): 1.5734 test eMAE(phase): 1.9481
+best_epoch 4
+-----epoch: 5-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 165.1220
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:    5 train in:  2m45s train loss(phase): 0.0337 train accu(phase): 0.9880 test in:  1m37s test loss(phase): 0.9235 test accu(phase): 0.8064 test in_MAE(phase): 1.3900 test pMAE(phase): 1.5768 test eMAE(phase): 2.0014
+best_epoch 5
+-----epoch: 6-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 166.1912
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:    6 train in:  2m46s train loss(phase): 0.0305 train accu(phase): 0.9894 test in:  1m39s test loss(phase): 0.8864 test accu(phase): 0.8080 test in_MAE(phase): 1.3770 test pMAE(phase): 1.5626 test eMAE(phase): 2.0129
+best_epoch 6
+-----epoch: 7-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 168.9266
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:    7 train in:  2m49s train loss(phase): 0.0285 train accu(phase): 0.9901 test in:  1m49s test loss(phase): 0.9506 test accu(phase): 0.8039 test in_MAE(phase): 1.3881 test pMAE(phase): 1.5714 test eMAE(phase): 2.0055
+best_epoch 7
+-----epoch: 8-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 165.4490
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:    8 train in:  2m45s train loss(phase): 0.0264 train accu(phase): 0.9910 test in:  1m38s test loss(phase): 0.9839 test accu(phase): 0.8036 test in_MAE(phase): 1.3722 test pMAE(phase): 1.5747 test eMAE(phase): 1.9771
+best_epoch 8
+-----epoch: 9-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 175.0654
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:    9 train in:  2m55s train loss(phase): 0.0234 train accu(phase): 0.9919 test in:  1m45s test loss(phase): 0.9876 test accu(phase): 0.8036 test in_MAE(phase): 1.3650 test pMAE(phase): 1.5707 test eMAE(phase): 1.9430
+best_epoch 9
+-----epoch: 10-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 164.6477
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:   10 train in:  2m45s train loss(phase): 0.0228 train accu(phase): 0.9922 test in:  1m51s test loss(phase): 0.9613 test accu(phase): 0.8123 test in_MAE(phase): 1.4048 test pMAE(phase): 1.5778 test eMAE(phase): 2.0778
+best_epoch 10
+-----epoch: 11-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 168.0693
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:   11 train in:  2m48s train loss(phase): 0.0209 train accu(phase): 0.9925 test in:  1m50s test loss(phase): 0.9842 test accu(phase): 0.8120 test in_MAE(phase): 1.3740 test pMAE(phase): 1.5697 test eMAE(phase): 1.9464
+best_epoch 11
+-----epoch: 12-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 165.0414
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:   12 train in:  2m45s train loss(phase): 0.0201 train accu(phase): 0.9931 test in:  1m50s test loss(phase): 0.9841 test accu(phase): 0.8065 test in_MAE(phase): 1.3649 test pMAE(phase): 1.5619 test eMAE(phase): 1.9823
+best_epoch 12
+-----epoch: 13-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 166.2087
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:   13 train in:  2m46s train loss(phase): 0.0189 train accu(phase): 0.9934 test in:  1m38s test loss(phase): 1.0252 test accu(phase): 0.8057 test in_MAE(phase): 1.3620 test pMAE(phase): 1.5680 test eMAE(phase): 1.9499
+best_epoch 13
+-----epoch: 14-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 175.5378
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:   14 train in:  2m56s train loss(phase): 0.0176 train accu(phase): 0.9936 test in:  1m46s test loss(phase): 1.0224 test accu(phase): 0.8102 test in_MAE(phase): 1.3803 test pMAE(phase): 1.5905 test eMAE(phase): 1.9815
+best_epoch 14
+-----epoch: 15-----
+Batch progress: 10.19% [8800/86344]Batch progress: 20.38% [17600/86344]Batch progress: 30.58% [26400/86344]Batch progress: 40.77% [35200/86344]Batch progress: 50.96% [44000/86344]Batch progress: 61.15% [52800/86344]Batch progress: 71.34% [61600/86344]Batch progress: 81.53% [70400/86344]Batch progress: 91.73% [79200/86344]Batch progress: 100.0% [86344/86344]
+train_elapsed_time: 166.8112
+test progress: 8.96% [8800/98234]test progress: 17.92% [17600/98234]test progress: 26.87% [26400/98234]test progress: 35.83% [35200/98234]test progress: 44.79% [44000/98234]test progress: 53.75% [52800/98234]test progress: 62.71% [61600/98234]test progress: 71.67% [70400/98234]test progress: 80.62% [79200/98234]test progress: 89.58% [88000/98234]test progress: 98.54% [96800/98234]test progress: 100.0% [98234/98234]
+epoch:   15 train in:  2m47s train loss(phase): 0.0163 train accu(phase): 0.9945 test in:  1m43s test loss(phase): 1.0296 test accu(phase): 0.8068 test in_MAE(phase): 1.3802 test pMAE(phase): 1.5708 test eMAE(phase): 1.9981
+
+[Stop Condition Met] Current train loss (0.0163) is lower than Stage 1 best loss (0.0163). Stopping training.
+Model saved to: bimask_ss_pos/cholec80/stage2_40_40/embedding1/evpfc_ce_STOPPED_EARLY_epoch_15_loss_162_train_9945_test_8068.pth
