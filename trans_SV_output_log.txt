@@ -1,0 +1,68 @@
+nohup: ignoring input
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+train_paths_80  :  86344
+train_labels_80 :  86344
+valid_paths_80  :  21445
+valid_labels_80 :  21445
+g_LFB_train shape: (86344, 2048)
+g_LFB_val shape: (21445, 2048)
+g_LFB_test shape: (98234, 2048)
+Random Seed:  1
+num_stages_classification: 2, num_layers: 8, num_f_maps: 32, dim: 2048
+Val progress: 12.5% [1/8]Val progress: 25.0% [2/8]Val progress: 37.5% [3/8]Val progress: 50.0% [4/8]Val progress: 62.5% [5/8]Val progress: 75.0% [6/8]Val progress: 87.5% [7/8]Val progress: 100.0% [8/8]
+Test progress: 2.5% [1/40]Test progress: 5.0% [2/40]Test progress: 7.5% [3/40]Test progress: 10.0% [4/40]Test progress: 12.5% [5/40]Test progress: 15.0% [6/40]Test progress: 17.5% [7/40]Test progress: 20.0% [8/40]Test progress: 22.5% [9/40]Test progress: 25.0% [10/40]Test progress: 27.5% [11/40]Test progress: 30.0% [12/40]Test progress: 32.5% [13/40]Test progress: 35.0% [14/40]Test progress: 37.5% [15/40]Test progress: 40.0% [16/40]Test progress: 42.5% [17/40]Test progress: 45.0% [18/40]Test progress: 47.5% [19/40]Test progress: 50.0% [20/40]Test progress: 52.5% [21/40]Test progress: 55.0% [22/40]Test progress: 57.5% [23/40]Test progress: 60.0% [24/40]Test progress: 62.5% [25/40]Test progress: 65.0% [26/40]Test progress: 67.5% [27/40]Test progress: 70.0% [28/40]Test progress: 72.5% [29/40]Test progress: 75.0% [30/40]Test progress: 77.5% [31/40]Test progress: 80.0% [32/40]Test progress: 82.5% [33/40]Test progress: 85.0% [34/40]Test progress: 87.5% [35/40]Test progress: 90.0% [36/40]Test progress: 92.5% [37/40]Test progress: 95.0% [38/40]Test progress: 97.5% [39/40]Test progress: 100.0% [40/40]
+0 -- 1.6329228 1.6325198 1.7029332
+1 -- 1.1142445 1.5801332 0.72445774
+2 -- 1.5010885 1.6208851 1.049393
+3 -- 0.8513696 1.5437005 1.0460463
+4 -- 1.3509451 1.6348139 1.0550274
+5 -- 0.9852321 1.4531087 0.6881812
+6 -- 1.4272135 1.5048178 0.7056
+7 -- 1.0846275 1.4923645 1.1280328
+8 -- 1.1495132 1.4848524 0.8750138
+9 -- 1.460261 1.5755882 1.709809
+10 -- 1.6564597 1.6105186 1.3012936
+11 -- 1.3378658 1.4735647 0.9817403
+12 -- 1.1788405 1.5933845 0.882363
+13 -- 1.1464028 1.5087564 0.8357549
+14 -- 1.2382916 1.3765861 1.4291588
+15 -- 1.4270587 1.5590645 1.179808
+16 -- 1.5735224 1.6175184 1.854174
+17 -- 1.6307503 1.7137533 1.1714858
+18 -- 1.2212423 1.3921129 1.2337509
+19 -- 1.1556305 1.4897139 1.9610847
+20 -- 1.1010609 1.6588819 0.9607856
+21 -- 1.3964835 1.4928724 1.523766
+22 -- 1.4337077 1.6584791 1.48566
+23 -- 1.4978975 1.5903367 2.063513
+24 -- 1.2223786 1.5632535 1.5006176
+25 -- 1.3449649 1.4976541 2.1128812
+26 -- 1.4702195 1.6064284 1.2224452
+27 -- 0.9847164 1.4875802 0.85543656
+28 -- 1.537828 1.7317508 1.0249655
+29 -- 1.2427474 1.4265429 1.8735943
+30 -- 1.8842663 1.7039744 1.9236515
+31 -- 1.3641719 1.6130701 0.9886752
+32 -- 0.93292373 1.3882624 1.2410802
+33 -- 1.3446512 1.5589036 2.1401129
+34 -- 1.1165049 1.5455424 1.6452786
+35 -- 1.5077087 1.7081865 1.3480496
+36 -- 1.1458579 1.5526717 0.97400993
+37 -- 1.2470073 1.3779522 2.2088716
+38 -- 1.5566292 1.5841225 1.8897805
+39 -- 1.3461642 1.5056266 1.5753082
+epoch:    0 valid in:  0m 5s valid loss(phase): 3.3617 valid accu(phase): 0.9210 valid accu(video): 0.9152 valid in_MAE(phase): 1.2741 valid pMAE(phase): 1.5687 valid eMAE(phase): 1.0125 test in:  0m19s test accu(phase): 0.8917 test accu(video): 0.8965 test in_MAE(phase): 1.2915 test pMAE(phase): 1.5823 test eMAE(phase): 1.3342
+val_precision_each_phase: [0.9668008  0.94384126 0.8672496  0.98191107 0.81309524 0.7972973
+ 0.68739353]
+val_recall_each_phase: [0.77003205 0.98246298 0.8385857  0.94498339 0.77088036 0.81164021
+ 0.89966555]
+val_precision_phase 0.8653698287736248
+val_recall_phase 0.8597500350488196
+val_jaccard_phase 0.7594998000292082
