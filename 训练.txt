@@ -1,0 +1,97 @@
+训练前，切换到我们要用的环境，pycharm连接好服务器后在电脑pycharm软件里的服务器终端执行：conda activate my_srtp_env
+
+第一阶段训练
+cd /root/autodl-tmp/data/code_80
+
+nohup python train_evp.py --train 88 --val 88 --work 8 > train_log.txt 2>&1 &
+查看：tail -f train_log.txt，按Ctrl+c可以退出查看模式
+
+终止服务器上的代码运行：执行nvidia-smi
+查看PID，执行kill PID(数字)
+
+第二阶段训练：
+cd /root/autodl-tmp/data/code_80
+运行：nohup python finetune_evp.py > finetune_log.txt 2>&1 &
+tail -f  finetune_log.txt
+
+终止服务器上的代码运行：执行nvidia-smi
+查看PID，执行kill PID(数字)
+
+Tensorboard查看：从服务器把训练结果下载到本地（目前只能我来做，我会在训练完之后上传到我们的github），执行：tensorboard --logdir="D:\srtp\dataset\code_80\bimask_ss_pos\cholec80\stage1_32_8_40\embedding1\runs"（路径根据自己电脑上的路径去更改，在本地的环境运行，应该都配好了吧（））
+
+一、二阶段训练是为了训练我们的主干网络即SegFormer的参数，作为特征提取器
+
+generate_evp_LFB.py训练：cd /root/autodl-tmp/data/code_80
+运行：nohup python generate_evp_LFB.py > generate_LFB_log.txt 2>&1 &
+tail -f generate_LFB_log.txt
+Tensorboard查看：同上
+这个主要是用训练好的SegFormer提取特征并存储，用于后续的MS-TCN，TransFormer模型参数训练、以及用训练好的模型对验证集和测试集作预测
+
+
+tecno.py运行：这个文件负责训练MS-TCN的参数：随机初始化参数后，使用generate_evp_LFB提取好的特征进行参数训练与优化，得到训练好的MS-TCN模型，.pth就是它的参数文件
+nohup python tecno.py > tecno_log.txt 2>&1 &
+tail -f  tecno_log.txt
+Tensorboard查看：同上
+
+
+
+tecno_trans.py运行：这个文件是训练Transformer的参数，先用训练好的MS-TCN模型，对generate_evp_LFB提取好的空间特征再提取时序特征，然后与空间特征一起输入Transformer进行参数训练与优化，得到训练好的Transformer模型，.pth为其参数文件
+nohup python tecno_trans.py > tecno_trans_log.txt 2>&1 &
+tail -f  tecno_trans_log.txt
+Tensorboard查看：同上
+
+
+trans_SV_output.py运行：这个文件是用训练好的模型（MS-TCN和Transformer）对验证集和测试集作预测，得到结果，其输入是generate_evp_LFB.py提取的空间特征、两个模型的参数文件
+运行方法：nohup python trans_SV_output.py >trans_SV_output_log.txt 2>&1 &
+tail -f trans_SV_output_log.txt
+Tensorboard查看：同上
+model = mstcn.MultiStageModel_S(mstcn_stages, mstcn_layers, mstcn_f_maps, mstcn_f_dim, out_features, mstcn_causal_conv)
+model_path = 'bimask_ss_pos/cholec80/stage2_40_40/TeCNO1-2/'
+model_name = 'TeCNOevp_epoch_15'
+model.load_state_dict(torch.load(model_path + model_name + '.pth'))这段代码负责加载MS-TCN的参数，.pth文件为最好的epoch对应的参数文件
+
+model1 = Transformer(mstcn_f_maps, mstcn_f_dim, out_features, sequence_length)
+model1_path = 'bimask_ss_pos/cholec80/stage2_40_40/TeCNO_t1-2/'
+model1_name = 'TeCNOevp_trans1_3_5_1_length_30_epoch_1_train_9780_val_9210.pth'  
+model1.load_state_dict(torch.load(model1_path + model1_name))这段代码负责加载Transformer模型的参数，.pth文件为最好的epoch对应的参数文件
+
+加载好之后就可以执行代码作预测了
+
+tecno.py、tecno_trans.py、trans_SV_output.py之间的联系：
+1. dataset/code_80/tecno.py
+角色：第一阶段训练器 (Stage 1 Trainer)
+功能：负责训练基础的 MS-TCN (Multi-Stage Temporal Convolutional Network) 模型。
+输入：视频的预提取特征（LFB features）。
+模型：仅实例化并训练 mstcn.MultiStageModel_S。
+过程：进行反向传播更新 MS-TCN 的权重。
+输出：保存训练好的 MS-TCN 模型权重文件（例如代码中引用的 TeCNOevp_epoch_15.pth）。
+关键点：这是地基。它不依赖其他模型文件，是从头（或者基于预训练特征）开始训练的。
+2. dataset/code_80/tecno_trans.py
+角色：第二阶段训练器 (Stage 2 Trainer)
+功能：负责训练 Transformer (Adapter Transformer) 模型，用于对第一阶段的输出进行精炼。
+输入：视频特征 + 第一阶段模型的输出。
+模型：
+Stage 1 (MS-TCN): 加载 tecno.py 生成的权重（如 TeCNOevp_epoch_15.pth），并设置为 eval() 模式（冻结，不参与训练）。
+Stage 2 (Transformer): 这是一个新的 Transformer 模型，是当前脚本主要训练的对象。
+过程：数据先流经冻结的 MS-TCN，提取出中间特征（代码中用到 .detach() 切断梯度），然后输入到 Transformer 中进行训练。
+输出：保存训练好的 Transformer 模型权重文件（例如代码中引用的 TeCNOevp_trans...val_9210.pth）。
+联系：它强依赖于 tecno.py 的产出。只有第一阶段训练好了，才能用它的输出作为“地基”来训练第二阶段。
+3. dataset/code_80/trans_SV_output.py
+角色：推理与结果生成器 (Inference & Output Generator)
+功能：不进行训练。加载上述两个阶段训练好的最优模型，对验证集和测试集进行预测，并生成结果文件。
+输入：视频特征 + Stage 1 权重 + Stage 2 权重。
+模型：
+同时加载 mstcn (Stage 1) 和 Transformer (Stage 2)。
+两个模型都显式调用 eval()，处于评估模式。
+过程：执行完整的前向传播（Feature -> MS-TCN -> Transformer -> Result），将最终的预测类别和时间写入 .txt 文件。
+联系：它是整个流水线的终点。它需要 tecno.py 产出的 MS-TCN 权重和 tecno_trans.py 产出的 Transformer 权重才能运行。
+
+
+
+文件说明：
+data/cholec80/phase_anticipation_annotations文件夹里的文件在pycharm里打开，内容含义:为一个二维矩阵。行: 代表视频的每一帧（按时间顺序）。列: 代表 7个手术阶段。数值: 归一化后的倒计时数值（范围 0 到 1）。0: 表示当前正在进行该阶段。>0: 表示距离该阶段发生还有多久（数值越大，距离越远，最大对应 horizon（因果膨胀卷积的范围，这是仇学姐定好的） 即 5 分钟）。
+
+data/cholec80/anticipation_output里的内容为图片，内容含义为:
+一张包含 7 个子图的大图，每个子图对应一个手术阶段。X轴: 帧数（时间）。Y轴: 距离下一阶段发生的时间（分钟）。红色曲线: Ground Truth 信号，为锯齿状的波形，随着时间推移，曲线线性下降直到变为 0（表示阶段开始）。
+
+code_80/bimask_ss_pos是训练过程中存储训练结果的文件夹，stage1为第一阶段，stage2为第二阶段，stage2中的embedding1为finetune.py微调得到的SegFormer各神经元之间的连接权重（也叫神经元的参数），LFB1是用训练好的SegFormer提取的空间特征，TeCNO1-2表示训练得到的MS-TCN模型神经元之间的权重，TeCNOt1-2表示训练好的TransFormer模型权重，output文件夹表示用训练好的MS-TCN和TransFormer模型去跑一遍验证集和测试集得到结果
