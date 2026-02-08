@@ -1,4 +1,4 @@
-from bytecode import Bytecode, Instr
+from bytecode import Bytecode, Instr#
 
 class get_local(object):
     cache = {}
