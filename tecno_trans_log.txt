@@ -1,0 +1,665 @@
+nohup: ignoring input
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+train_paths_80  :  86344
+train_labels_80 :  86344
+valid_paths_80  :  21445
+valid_labels_80 :  21445
+LFB load completed
+g_LFB_train shape: (86344, 2048)
+g_LFB_val shape: (21445, 2048)
+g_LFB_test shape: (98234, 2048)
+Random Seed:  23
+num_stages_classification: 2, num_layers: 8, num_f_maps: 32, dim: 2048
+epoch:    0 train in:  0m 4s train loss(phase): 33.6078 train loss(phase ant): 4.2882 train loss(phase all): 37.8960 train accu(phase): 0.7750 valid in:  0m 4s valid loss(phase): 3.9916 valid accu(phase): 0.9130 valid accu(video): 0.9088 valid in_MAE(phase): 1.4174 valid pMAE(phase): 1.4686 valid eMAE(phase): 1.6290 test in:  0m19s test accu(phase): 0.8811 test accu(video): 0.8848 test in_MAE(phase): 1.4764 test pMAE(phase): 1.4779 test eMAE(phase): 2.0411
+val_precision_each_phase: [0.99041096 0.91083184 0.88340426 0.97514185 0.90373563 0.75623018
+ 0.7875    ]
+val_recall_each_phase: [0.57932692 0.98856846 0.79784781 0.95920266 0.70993228 0.88306878
+ 0.77257525]
+val_precision_phase 0.8867506734134211
+val_recall_phase 0.8129317376309046
+val_jaccard_phase 0.7317564303794551
+best_epoch 0
+epoch:    1 train in:  0m 3s train loss(phase): 13.2596 train loss(phase ant): 1.7944 train loss(phase all): 15.0540 train accu(phase): 0.9780 valid in:  0m 3s valid loss(phase): 3.3617 valid accu(phase): 0.9210 valid accu(video): 0.9152 valid in_MAE(phase): 1.2741 valid pMAE(phase): 1.5687 valid eMAE(phase): 1.0125 test in:  0m14s test accu(phase): 0.8917 test accu(video): 0.8965 test in_MAE(phase): 1.2915 test pMAE(phase): 1.5823 test eMAE(phase): 1.3342
+val_precision_each_phase: [0.9668008  0.94384126 0.8672496  0.98191107 0.81309524 0.7972973
+ 0.68739353]
+val_recall_each_phase: [0.77003205 0.98246298 0.8385857  0.94498339 0.77088036 0.81164021
+ 0.89966555]
+val_precision_phase 0.8653698287736248
+val_recall_phase 0.8597500350488196
+val_jaccard_phase 0.7594998000292082
+best_epoch 1
+epoch:    2 train in:  0m 2s train loss(phase): 10.7729 train loss(phase ant): 1.8729 train loss(phase all): 12.6458 train accu(phase): 0.9841 valid in:  0m 3s valid loss(phase): 3.3595 valid accu(phase): 0.9181 valid accu(video): 0.9120 valid in_MAE(phase): 1.2681 valid pMAE(phase): 1.5714 valid eMAE(phase): 1.0421 test in:  0m14s test accu(phase): 0.8912 test accu(video): 0.8967 test in_MAE(phase): 1.2401 test pMAE(phase): 1.5745 test eMAE(phase): 1.1930
+val_precision_each_phase: [0.9761163  0.94321727 0.86035687 0.9827181  0.80261593 0.81797878
+ 0.63346008]
+val_recall_each_phase: [0.75320513 0.98181346 0.85242121 0.94458472 0.76185102 0.77513228
+ 0.92865106]
+val_precision_phase 0.8594947615441383
+val_recall_phase 0.8568084097605778
+val_jaccard_phase 0.7501945052494323
+best_epoch 1
+epoch:    3 train in:  0m 2s train loss(phase): 10.1611 train loss(phase ant): 1.8290 train loss(phase all): 11.9901 train accu(phase): 0.9870 valid in:  0m 3s valid loss(phase): 3.4311 valid accu(phase): 0.9145 valid accu(video): 0.9083 valid in_MAE(phase): 1.2008 valid pMAE(phase): 1.5222 valid eMAE(phase): 1.1661 test in:  0m13s test accu(phase): 0.8888 test accu(video): 0.8947 test in_MAE(phase): 1.1968 test pMAE(phase): 1.5290 test eMAE(phase): 1.3010
+val_precision_each_phase: [0.97701149 0.94356659 0.84096024 0.98365425 0.78802395 0.82684486
+ 0.60384068]
+val_recall_each_phase: [0.74919872 0.97739673 0.86164489 0.94365449 0.74266366 0.75291005
+ 0.94648829]
+val_precision_phase 0.8519860091428832
+val_recall_phase 0.85342240315394
+val_jaccard_phase 0.7404156732151826
+best_epoch 1
+epoch:    4 train in:  0m 2s train loss(phase): 9.8739 train loss(phase ant): 1.7949 train loss(phase all): 11.6688 train accu(phase): 0.9887 valid in:  0m 3s valid loss(phase): 3.4895 valid accu(phase): 0.9099 valid accu(video): 0.9036 valid in_MAE(phase): 1.2181 valid pMAE(phase): 1.5355 valid eMAE(phase): 1.1118 test in:  0m13s test accu(phase): 0.8849 test accu(video): 0.8912 test in_MAE(phase): 1.2056 test pMAE(phase): 1.5422 test eMAE(phase): 1.2681
+val_precision_each_phase: [0.97686646 0.94328471 0.83283133 0.98148404 0.79393173 0.81963335
+ 0.57525084]
+val_recall_each_phase: [0.74439103 0.97440894 0.8501153  0.94392027 0.70880361 0.73333333
+ 0.95875139]
+val_precision_phase 0.8461832073444862
+val_recall_phase 0.8448176947628265
+val_jaccard_phase 0.7281484629544533
+best_epoch 1
+epoch:    5 train in:  0m 2s train loss(phase): 9.6905 train loss(phase ant): 1.7616 train loss(phase all): 11.4521 train accu(phase): 0.9900 valid in:  0m 3s valid loss(phase): 3.4883 valid accu(phase): 0.9059 valid accu(video): 0.8998 valid in_MAE(phase): 1.2709 valid pMAE(phase): 1.5843 valid eMAE(phase): 1.0491 test in:  0m12s test accu(phase): 0.8815 test accu(video): 0.8882 test in_MAE(phase): 1.2261 test pMAE(phase): 1.5842 test eMAE(phase): 1.1494
+val_precision_each_phase: [0.97763578 0.94243608 0.83014537 0.9784044  0.77391304 0.81923311
+ 0.55836576]
+val_recall_each_phase: [0.73557692 0.97194076 0.83397387 0.94524917 0.70316027 0.71216931
+ 0.95986622]
+val_precision_phase 0.840019077563845
+val_recall_phase 0.8374195037698694
+val_jaccard_phase 0.7176620476346737
+best_epoch 1
+epoch:    6 train in:  0m 2s train loss(phase): 9.5466 train loss(phase ant): 1.7559 train loss(phase all): 11.3025 train accu(phase): 0.9909 valid in:  0m 3s valid loss(phase): 3.5840 valid accu(phase): 0.9026 valid accu(video): 0.8967 valid in_MAE(phase): 1.2959 valid pMAE(phase): 1.5412 valid eMAE(phase): 1.0360 test in:  0m13s test accu(phase): 0.8773 test accu(video): 0.8845 test in_MAE(phase): 1.2333 test pMAE(phase): 1.5452 test eMAE(phase): 1.1071
+val_precision_each_phase: [0.97749196 0.94261881 0.81622024 0.97929607 0.76237624 0.81463112
+ 0.54402516]
+val_recall_each_phase: [0.73076923 0.96882307 0.84319754 0.94285714 0.69525959 0.6952381
+ 0.96432553]
+val_precision_phase 0.8338085128039127
+val_recall_phase 0.8343528861954195
+val_jaccard_phase 0.7102321198976984
+best_epoch 1
+epoch:    7 train in:  0m 2s train loss(phase): 9.3970 train loss(phase ant): 1.7730 train loss(phase all): 11.1699 train accu(phase): 0.9916 valid in:  0m 3s valid loss(phase): 3.5953 valid accu(phase): 0.9008 valid accu(video): 0.8945 valid in_MAE(phase): 1.3091 valid pMAE(phase): 1.5631 valid eMAE(phase): 1.0730 test in:  0m12s test accu(phase): 0.8748 test accu(video): 0.8826 test in_MAE(phase): 1.2477 test pMAE(phase): 1.5600 test eMAE(phase): 1.1730
+val_precision_each_phase: [0.97741935 0.94231499 0.80781011 0.9735725  0.7751938  0.81097561
+ 0.54505356]
+val_recall_each_phase: [0.72836538 0.96765394 0.81091468 0.9448505  0.6772009  0.7037037
+ 0.96432553]
+val_precision_phase 0.8331914179115661
+val_recall_phase 0.8281449480339024
+val_jaccard_phase 0.7051008843371281
+best_epoch 1
+epoch:    8 train in:  0m 2s train loss(phase): 9.3588 train loss(phase ant): 1.7340 train loss(phase all): 11.0927 train accu(phase): 0.9921 valid in:  0m 3s valid loss(phase): 3.6699 valid accu(phase): 0.8993 valid accu(video): 0.8930 valid in_MAE(phase): 1.2557 valid pMAE(phase): 1.5337 valid eMAE(phase): 1.1136 test in:  0m12s test accu(phase): 0.8723 test accu(video): 0.8802 test in_MAE(phase): 1.2064 test pMAE(phase): 1.5375 test eMAE(phase): 1.1923
+val_precision_each_phase: [0.97712418 0.94176478 0.80464072 0.97516125 0.77777778 0.80641184
+ 0.53461063]
+val_recall_each_phase: [0.71875    0.9663549  0.82628747 0.94431894 0.67155756 0.69206349
+ 0.96432553]
+val_precision_phase 0.8310701676285197
+val_recall_phase 0.8262368413017428
+val_jaccard_phase 0.7014622982440063
+best_epoch 1
+epoch:    9 train in:  0m 2s train loss(phase): 9.2777 train loss(phase ant): 1.7336 train loss(phase all): 11.0113 train accu(phase): 0.9924 valid in:  0m 3s valid loss(phase): 3.6998 valid accu(phase): 0.8963 valid accu(video): 0.8900 valid in_MAE(phase): 1.2361 valid pMAE(phase): 1.5275 valid eMAE(phase): 1.1487 test in:  0m13s test accu(phase): 0.8690 test accu(video): 0.8773 test in_MAE(phase): 1.1957 test pMAE(phase): 1.5342 test eMAE(phase): 1.2307
+val_precision_each_phase: [0.97676991 0.93972707 0.80138037 0.97184254 0.77220077 0.80898166
+ 0.52637962]
+val_recall_each_phase: [0.70753205 0.96609509 0.80322829 0.9448505  0.6772009  0.67671958
+ 0.96767001]
+val_precision_phase 0.8281831336944834
+val_recall_phase 0.8204709165701249
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+val_jaccard_phase 0.6943288903085109
+best_epoch 1
+epoch:   10 train in:  0m 2s train loss(phase): 9.2175 train loss(phase ant): 1.7057 train loss(phase all): 10.9232 train accu(phase): 0.9927 valid in:  0m 3s valid loss(phase): 3.7458 valid accu(phase): 0.8943 valid accu(video): 0.8880 valid in_MAE(phase): 1.3678 valid pMAE(phase): 1.5394 valid eMAE(phase): 1.0071 test in:  0m12s test accu(phase): 0.8659 test accu(video): 0.8742 test in_MAE(phase): 1.2892 test pMAE(phase): 1.5492 test eMAE(phase): 1.0713
+val_precision_each_phase: [0.97737557 0.9377918  0.79738059 0.96987459 0.77894737 0.80557315
+ 0.52254961]
+val_recall_each_phase: [0.69230769 0.96544557 0.79554189 0.94551495 0.66817156 0.67301587
+ 0.96878484]
+val_precision_phase 0.8270703807735715
+val_recall_phase 0.815540338933285
+val_jaccard_phase 0.6890809852258358
+best_epoch 1
+epoch:   11 train in:  0m 2s train loss(phase): 9.1384 train loss(phase ant): 1.7049 train loss(phase all): 10.8433 train accu(phase): 0.9929 valid in:  0m 3s valid loss(phase): 3.7686 valid accu(phase): 0.8937 valid accu(video): 0.8874 valid in_MAE(phase): 1.2715 valid pMAE(phase): 1.5680 valid eMAE(phase): 1.1038 test in:  0m12s test accu(phase): 0.8642 test accu(video): 0.8727 test in_MAE(phase): 1.2145 test pMAE(phase): 1.5707 test eMAE(phase): 1.1754
+val_precision_each_phase: [0.97610922 0.93748421 0.79310345 0.96948645 0.78381963 0.80634921
+ 0.52062164]
+val_recall_each_phase: [0.6875     0.96427644 0.79554189 0.94578073 0.66704289 0.67195767
+ 0.97101449]
+val_precision_phase 0.8267105421770328
+val_recall_phase 0.8147305873271129
+val_jaccard_phase 0.687719043354398
+best_epoch 1
+epoch:   12 train in:  0m 2s train loss(phase): 9.1134 train loss(phase ant): 1.6860 train loss(phase all): 10.7994 train accu(phase): 0.9929 valid in:  0m 3s valid loss(phase): 3.7579 valid accu(phase): 0.8922 valid accu(video): 0.8859 valid in_MAE(phase): 1.3634 valid pMAE(phase): 1.5832 valid eMAE(phase): 1.0214 test in:  0m12s test accu(phase): 0.8625 test accu(video): 0.8713 test in_MAE(phase): 1.2706 test pMAE(phase): 1.5918 test eMAE(phase): 1.0544
+val_precision_each_phase: [0.97695853 0.93662416 0.78902628 0.96698818 0.78145695 0.80597964
+ 0.52031063]
+val_recall_each_phase: [0.67948718 0.96375682 0.78478094 0.94591362 0.66591422 0.67037037
+ 0.97101449]
+val_precision_phase 0.8253349108075813
+val_recall_phase 0.8116053775408609
+val_jaccard_phase 0.6842084332523084
+best_epoch 1
+epoch:   13 train in:  0m 2s train loss(phase): 9.0639 train loss(phase ant): 1.7107 train loss(phase all): 10.7746 train accu(phase): 0.9932 valid in:  0m 3s valid loss(phase): 3.8405 valid accu(phase): 0.8903 valid accu(video): 0.8841 valid in_MAE(phase): 1.2683 valid pMAE(phase): 1.5210 valid eMAE(phase): 1.1232 test in:  0m12s test accu(phase): 0.8604 test accu(video): 0.8693 test in_MAE(phase): 1.2057 test pMAE(phase): 1.5318 test eMAE(phase): 1.1601
+val_precision_each_phase: [0.97769953 0.93386243 0.78593041 0.97021451 0.7823219  0.80427738
+ 0.50904845]
+val_recall_each_phase: [0.66746795 0.9629774  0.79861645 0.94365449 0.66930023 0.65661376
+ 0.97212932]
+val_precision_phase 0.8233363739280497
+val_recall_phase 0.8101085116689252
+val_jaccard_phase 0.6805822024437658
+best_epoch 1
+epoch:   14 train in:  0m 2s train loss(phase): 9.0229 train loss(phase ant): 1.6922 train loss(phase all): 10.7151 train accu(phase): 0.9933 valid in:  0m 3s valid loss(phase): 3.8684 valid accu(phase): 0.8890 valid accu(video): 0.8828 valid in_MAE(phase): 1.2620 valid pMAE(phase): 1.5085 valid eMAE(phase): 1.1339 test in:  0m12s test accu(phase): 0.8602 test accu(video): 0.8690 test in_MAE(phase): 1.2145 test pMAE(phase): 1.5213 test eMAE(phase): 1.2016
+val_precision_each_phase: [0.97754137 0.93351801 0.78422274 0.96630435 0.7826685  0.80063694
+ 0.5102519 ]
+val_recall_each_phase: [0.66266026 0.9631073  0.77940046 0.94511628 0.64221219 0.66507937
+ 0.97101449]
+val_precision_phase 0.8221634013759432
+val_recall_phase 0.8040843349586468
+val_jaccard_phase 0.6755638771734652
+best_epoch 1
+epoch:   15 train in:  0m 2s train loss(phase): 9.0146 train loss(phase ant): 1.6751 train loss(phase all): 10.6897 train accu(phase): 0.9934 valid in:  0m 3s valid loss(phase): 3.9305 valid accu(phase): 0.8841 valid accu(video): 0.8778 valid in_MAE(phase): 1.3477 valid pMAE(phase): 1.5616 valid eMAE(phase): 1.0596 test in:  0m12s test accu(phase): 0.8583 test accu(video): 0.8672 test in_MAE(phase): 1.2622 test pMAE(phase): 1.5677 test eMAE(phase): 1.0986
+val_precision_each_phase: [0.9794686  0.93203272 0.77648879 0.96449383 0.77631579 0.79118029
+ 0.49154453]
+val_recall_each_phase: [0.64983974 0.96193817 0.77171407 0.94578073 0.5993228  0.64550265
+ 0.97212932]
+val_precision_phase 0.8159320786555154
+val_recall_phase 0.7923182101288869
+val_jaccard_phase 0.661816397478636
+best_epoch 1
+epoch:   16 train in:  0m 2s train loss(phase): 9.0042 train loss(phase ant): 1.6622 train loss(phase all): 10.6664 train accu(phase): 0.9936 valid in:  0m 3s valid loss(phase): 3.9069 valid accu(phase): 0.8851 valid accu(video): 0.8793 valid in_MAE(phase): 1.3449 valid pMAE(phase): 1.5716 valid eMAE(phase): 1.0634 test in:  0m12s test accu(phase): 0.8577 test accu(video): 0.8668 test in_MAE(phase): 1.2692 test pMAE(phase): 1.5795 test eMAE(phase): 1.0956
+val_precision_each_phase: [0.981774   0.93168093 0.77563608 0.96479827 0.77840909 0.80118499
+ 0.49321267]
+val_recall_each_phase: [0.6474359  0.96193817 0.77325135 0.94697674 0.61851016 0.64391534
+ 0.97212932]
+val_precision_phase 0.8180994320810158
+val_recall_phase 0.7948795677689596
+val_jaccard_phase 0.6647157719504211
+best_epoch 1
+epoch:   17 train in:  0m 2s train loss(phase): 8.9497 train loss(phase ant): 1.6665 train loss(phase all): 10.6162 train accu(phase): 0.9937 valid in:  0m 3s valid loss(phase): 3.9498 valid accu(phase): 0.8845 valid accu(video): 0.8787 valid in_MAE(phase): 1.2692 valid pMAE(phase): 1.5268 valid eMAE(phase): 1.0907 test in:  0m12s test accu(phase): 0.8565 test accu(video): 0.8657 test in_MAE(phase): 1.2091 test pMAE(phase): 1.5373 test eMAE(phase): 1.1354
+val_precision_each_phase: [0.97941889 0.93144297 0.76834862 0.96536738 0.78129298 0.80516899
+ 0.49071469]
+val_recall_each_phase: [0.64823718 0.96011951 0.77248271 0.94458472 0.64108352 0.64285714
+ 0.97212932]
+val_precision_phase 0.8173935028961731
+val_recall_phase 0.797356299789273
+val_jaccard_phase 0.6657462081903678
+best_epoch 1
+epoch:   18 train in:  0m 2s train loss(phase): 8.9340 train loss(phase ant): 1.6615 train loss(phase all): 10.5955 train accu(phase): 0.9941 valid in:  0m 3s valid loss(phase): 4.0141 valid accu(phase): 0.8827 valid accu(video): 0.8764 valid in_MAE(phase): 1.3245 valid pMAE(phase): 1.5290 valid eMAE(phase): 1.0283 test in:  0m12s test accu(phase): 0.8554 test accu(video): 0.8644 test in_MAE(phase): 1.2630 test pMAE(phase): 1.5435 test eMAE(phase): 1.1140
+val_precision_each_phase: [0.98273736 0.92988837 0.77856025 0.96403854 0.77438137 0.78947368
+ 0.48769575]
+val_recall_each_phase: [0.63862179 0.9631073  0.76479631 0.94405316 0.60045147 0.64285714
+ 0.97212932]
+val_precision_phase 0.8152536180973489
+val_recall_phase 0.7894309274610095
+val_jaccard_phase 0.6586193319038606
+best_epoch 1
+epoch:   19 train in:  0m 2s train loss(phase): 8.9010 train loss(phase ant): 1.6576 train loss(phase all): 10.5586 train accu(phase): 0.9941 valid in:  0m 3s valid loss(phase): 3.9973 valid accu(phase): 0.8824 valid accu(video): 0.8765 valid in_MAE(phase): 1.2811 valid pMAE(phase): 1.5303 valid eMAE(phase): 1.1051 test in:  0m12s test accu(phase): 0.8559 test accu(video): 0.8648 test in_MAE(phase): 1.2269 test pMAE(phase): 1.5409 test eMAE(phase): 1.1827
+val_precision_each_phase: [0.98267327 0.92910026 0.77374517 0.96487659 0.77728614 0.79240341
+ 0.48606466]
+val_recall_each_phase: [0.63621795 0.96180826 0.77017679 0.94551495 0.59480813 0.64021164
+ 0.97212932]
+val_precision_phase 0.8151642141529105
+val_recall_phase 0.788695290633572
+val_jaccard_phase 0.6576715656912008
+best_epoch 1
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+epoch:   20 train in:  0m 2s train loss(phase): 8.9024 train loss(phase ant): 1.6394 train loss(phase all): 10.5418 train accu(phase): 0.9944 valid in:  0m 3s valid loss(phase): 3.9853 valid accu(phase): 0.8825 valid accu(video): 0.8766 valid in_MAE(phase): 1.3640 valid pMAE(phase): 1.5522 valid eMAE(phase): 1.0076 test in:  0m13s test accu(phase): 0.8561 test accu(video): 0.8649 test in_MAE(phase): 1.2873 test pMAE(phase): 1.5621 test eMAE(phase): 1.0644
+val_precision_each_phase: [0.98258706 0.92901118 0.76834862 0.96426638 0.77462687 0.79453836
+ 0.4904387 ]
+val_recall_each_phase: [0.63301282 0.96050922 0.77248271 0.94671096 0.58577878 0.64656085
+ 0.97212932]
+val_precision_phase 0.8148310244417838
+val_recall_phase 0.7881692371869311
+val_jaccard_phase 0.6571527138387084
+best_epoch 1
+epoch:   21 train in:  0m 2s train loss(phase): 8.8804 train loss(phase ant): 1.6511 train loss(phase all): 10.5316 train accu(phase): 0.9945 valid in:  0m 3s valid loss(phase): 3.9647 valid accu(phase): 0.8834 valid accu(video): 0.8775 valid in_MAE(phase): 1.2957 valid pMAE(phase): 1.5493 valid eMAE(phase): 1.0550 test in:  0m12s test accu(phase): 0.8568 test accu(video): 0.8655 test in_MAE(phase): 1.2355 test pMAE(phase): 1.5635 test eMAE(phase): 1.1413
+val_precision_each_phase: [0.98263027 0.92893911 0.77076923 0.96414073 0.77678571 0.79497099
+ 0.4951732 ]
+val_recall_each_phase: [0.63461538 0.96115874 0.77017679 0.94684385 0.58916479 0.65238095
+ 0.97212932]
+val_precision_phase 0.8162013201189415
+val_recall_phase 0.7894956894203962
+val_jaccard_phase 0.6592438587637349
+best_epoch 1
+epoch:   22 train in:  0m 2s train loss(phase): 8.8601 train loss(phase ant): 1.6459 train loss(phase all): 10.5060 train accu(phase): 0.9943 valid in:  0m 3s valid loss(phase): 4.0021 valid accu(phase): 0.8824 valid accu(video): 0.8765 valid in_MAE(phase): 1.3216 valid pMAE(phase): 1.5381 valid eMAE(phase): 1.0377 test in:  0m12s test accu(phase): 0.8551 test accu(video): 0.8643 test in_MAE(phase): 1.2585 test pMAE(phase): 1.5533 test eMAE(phase): 1.1202
+val_precision_each_phase: [0.98252185 0.92893911 0.76940994 0.96318354 0.77618364 0.80065789
+ 0.48824188]
+val_recall_each_phase: [0.63060897 0.96115874 0.76172175 0.94564784 0.61060948 0.64391534
+ 0.97212932]
+val_precision_phase 0.8155911221830038
+val_recall_phase 0.7893987792289333
+val_jaccard_phase 0.6581992434683553
+best_epoch 1
+epoch:   23 train in:  0m 2s train loss(phase): 8.8292 train loss(phase ant): 1.6424 train loss(phase all): 10.4717 train accu(phase): 0.9949 valid in:  0m 3s valid loss(phase): 3.9973 valid accu(phase): 0.8835 valid accu(video): 0.8775 valid in_MAE(phase): 1.2184 valid pMAE(phase): 1.5159 valid eMAE(phase): 1.1295 test in:  0m12s test accu(phase): 0.8564 test accu(video): 0.8653 test in_MAE(phase): 1.1809 test pMAE(phase): 1.5314 test eMAE(phase): 1.2304
+val_precision_each_phase: [0.98258706 0.92859832 0.76976744 0.96298298 0.77711738 0.79742765
+ 0.49771689]
+val_recall_each_phase: [0.63301282 0.96128865 0.76325903 0.94724252 0.59029345 0.65608466
+ 0.97212932]
+val_precision_phase 0.8165996764498724
+val_recall_phase 0.7890443504443306
+val_jaccard_phase 0.6591971411166497
+best_epoch 1
+epoch:   24 train in:  0m 2s train loss(phase): 8.8312 train loss(phase ant): 1.6282 train loss(phase all): 10.4593 train accu(phase): 0.9947 valid in:  0m 3s valid loss(phase): 4.0340 valid accu(phase): 0.8825 valid accu(video): 0.8770 valid in_MAE(phase): 1.3164 valid pMAE(phase): 1.5583 valid eMAE(phase): 1.0630 test in:  0m12s test accu(phase): 0.8547 test accu(video): 0.8639 test in_MAE(phase): 1.2517 test pMAE(phase): 1.5711 test eMAE(phase): 1.1419
+val_precision_each_phase: [0.9824781  0.9292269  0.76415826 0.96199461 0.78066378 0.81137124
+ 0.48606466]
+val_recall_each_phase: [0.62900641 0.96024942 0.75710992 0.94857143 0.61060948 0.64179894
+ 0.97212932]
+val_precision_phase 0.8165653640606892
+val_recall_phase 0.7884964160395803
+val_jaccard_phase 0.6577000892751369
+best_epoch 1
+epoch:   25 train in:  0m 2s train loss(phase): 8.8041 train loss(phase ant): 1.6278 train loss(phase all): 10.4319 train accu(phase): 0.9951 valid in:  0m 3s valid loss(phase): 4.0242 valid accu(phase): 0.8823 valid accu(video): 0.8765 valid in_MAE(phase): 1.3540 valid pMAE(phase): 1.5474 valid eMAE(phase): 1.0021 test in:  0m12s test accu(phase): 0.8550 test accu(video): 0.8641 test in_MAE(phase): 1.2746 test pMAE(phase): 1.5620 test eMAE(phase): 1.0739
+val_precision_each_phase: [0.98245614 0.92830283 0.77254902 0.96197411 0.77596439 0.80690113
+ 0.4852532 ]
+val_recall_each_phase: [0.62820513 0.96206807 0.75710992 0.94803987 0.59029345 0.64338624
+ 0.97212932]
+val_precision_phase 0.8162001174741526
+val_recall_phase 0.7858902853513067
+val_jaccard_phase 0.6557345321730856
+best_epoch 1
+epoch:   26 train in:  0m 2s train loss(phase): 8.8030 train loss(phase ant): 1.6189 train loss(phase all): 10.4219 train accu(phase): 0.9952 valid in:  0m 3s valid loss(phase): 4.0153 valid accu(phase): 0.8825 valid accu(video): 0.8770 valid in_MAE(phase): 1.3320 valid pMAE(phase): 1.5496 valid eMAE(phase): 1.0363 test in:  0m12s test accu(phase): 0.8561 test accu(video): 0.8648 test in_MAE(phase): 1.2544 test pMAE(phase): 1.5615 test eMAE(phase): 1.0921
+val_precision_each_phase: [0.98254364 0.92840995 0.76574501 0.96319267 0.77557252 0.80804749
+ 0.48687884]
+val_recall_each_phase: [0.63141026 0.96024942 0.76633359 0.94936877 0.57336343 0.64814815
+ 0.97212932]
+val_precision_phase 0.8157700160644511
+val_recall_phase 0.7858575616297507
+val_jaccard_phase 0.6555715878280469
+best_epoch 1
+epoch:   27 train in:  0m 2s train loss(phase): 8.7611 train loss(phase ant): 1.6337 train loss(phase all): 10.3948 train accu(phase): 0.9955 valid in:  0m 3s valid loss(phase): 4.1302 valid accu(phase): 0.8810 valid accu(video): 0.8760 valid in_MAE(phase): 1.2824 valid pMAE(phase): 1.5180 valid eMAE(phase): 1.1239 test in:  0m12s test accu(phase): 0.8549 test accu(video): 0.8640 test in_MAE(phase): 1.2249 test pMAE(phase): 1.5302 test eMAE(phase): 1.1912
+val_precision_each_phase: [0.98245614 0.92792567 0.76475096 0.96322242 0.78189911 0.81533101
+ 0.47291441]
+val_recall_each_phase: [0.62820513 0.95998961 0.76710223 0.95016611 0.59480813 0.61904762
+ 0.97324415]
+val_precision_phase 0.8154999586131418
+val_recall_phase 0.7846518529317807
+val_jaccard_phase 0.653156119090271
+best_epoch 1
+epoch:   28 train in:  0m 2s train loss(phase): 8.7702 train loss(phase ant): 1.6310 train loss(phase all): 10.4012 train accu(phase): 0.9955 valid in:  0m 3s valid loss(phase): 4.0990 valid accu(phase): 0.8798 valid accu(video): 0.8744 valid in_MAE(phase): 1.2889 valid pMAE(phase): 1.5436 valid eMAE(phase): 1.0189 test in:  0m12s test accu(phase): 0.8546 test accu(video): 0.8634 test in_MAE(phase): 1.2384 test pMAE(phase): 1.5605 test eMAE(phase): 1.1289
+val_precision_each_phase: [0.98243413 0.92723623 0.76515733 0.96332255 0.77251185 0.80923286
+ 0.47084233]
+val_recall_each_phase: [0.62740385 0.96011951 0.76633359 0.94936877 0.55191874 0.63068783
+ 0.97212932]
+val_precision_phase 0.8129624676389826
+val_recall_phase 0.7797088006515426
+val_jaccard_phase 0.6483338482080876
+best_epoch 1
+epoch:   29 train in:  0m 2s train loss(phase): 8.7413 train loss(phase ant): 1.6275 train loss(phase all): 10.3688 train accu(phase): 0.9955 valid in:  0m 3s valid loss(phase): 4.0326 valid accu(phase): 0.8832 valid accu(video): 0.8779 valid in_MAE(phase): 1.2926 valid pMAE(phase): 1.5207 valid eMAE(phase): 0.9706 test in:  0m12s test accu(phase): 0.8547 test accu(video): 0.8636 test in_MAE(phase): 1.2402 test pMAE(phase): 1.5404 test eMAE(phase): 1.0681
+val_precision_each_phase: [0.98238994 0.92691488 0.76607281 0.96304289 0.7739521  0.81503268
+ 0.49265537]
+val_recall_each_phase: [0.62580128 0.96050922 0.76018447 0.94883721 0.58352144 0.65978836
+ 0.97212932]
+val_precision_phase 0.8171515233952003
+val_recall_phase 0.7872530446356316
+val_jaccard_phase 0.6574892674058542
+best_epoch 1
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+epoch:   30 train in:  0m 2s train loss(phase): 8.7345 train loss(phase ant): 1.6097 train loss(phase all): 10.3443 train accu(phase): 0.9956 valid in:  0m 3s valid loss(phase): 4.0959 valid accu(phase): 0.8814 valid accu(video): 0.8765 valid in_MAE(phase): 1.2702 valid pMAE(phase): 1.5311 valid eMAE(phase): 1.0718 test in:  0m12s test accu(phase): 0.8543 test accu(video): 0.8633 test in_MAE(phase): 1.2350 test pMAE(phase): 1.5477 test eMAE(phase): 1.1699
+val_precision_each_phase: [0.98352345 0.92632502 0.76484194 0.96320755 0.77438137 0.82157676
+ 0.47835616]
+val_recall_each_phase: [0.62179487 0.96037932 0.76249039 0.94976744 0.60045147 0.62857143
+ 0.97324415]
+val_precision_phase 0.8160303222258272
+val_recall_phase 0.7852427239946348
+val_jaccard_phase 0.6540114305422792
+best_epoch 1
+epoch:   31 train in:  0m 2s train loss(phase): 8.7268 train loss(phase ant): 1.6120 train loss(phase all): 10.3388 train accu(phase): 0.9960 valid in:  0m 3s valid loss(phase): 4.1718 valid accu(phase): 0.8809 valid accu(video): 0.8762 valid in_MAE(phase): 1.2466 valid pMAE(phase): 1.5181 valid eMAE(phase): 1.1717 test in:  0m12s test accu(phase): 0.8535 test accu(video): 0.8628 test in_MAE(phase): 1.2034 test pMAE(phase): 1.5366 test eMAE(phase): 1.2791
+val_precision_each_phase: [0.98241206 0.92687821 0.76334107 0.96281827 0.77556818 0.82112676
+ 0.4754902 ]
+val_recall_each_phase: [0.62660256 0.95998961 0.75864719 0.94976744 0.61625282 0.61693122
+ 0.97324415]
+val_precision_phase 0.8153763925094077
+val_recall_phase 0.7859192848397101
+val_jaccard_phase 0.6540849708861908
+best_epoch 1
+epoch:   32 train in:  0m 2s train loss(phase): 8.6919 train loss(phase ant): 1.6206 train loss(phase all): 10.3125 train accu(phase): 0.9959 valid in:  0m 3s valid loss(phase): 4.1182 valid accu(phase): 0.8811 valid accu(video): 0.8760 valid in_MAE(phase): 1.2786 valid pMAE(phase): 1.5108 valid eMAE(phase): 1.0053 test in:  0m12s test accu(phase): 0.8534 test accu(video): 0.8623 test in_MAE(phase): 1.2339 test pMAE(phase): 1.5308 test eMAE(phase): 1.1095
+val_precision_each_phase: [0.98236776 0.92661816 0.76208749 0.96355784 0.77002967 0.81296421
+ 0.48178808]
+val_recall_each_phase: [0.625      0.9595999  0.76325903 0.94870432 0.58577878 0.63703704
+ 0.97324415]
+val_precision_phase 0.8142018876658806
+val_recall_phase 0.7846604588229432
+val_jaccard_phase 0.653111446279644
+best_epoch 1
+epoch:   33 train in:  0m 2s train loss(phase): 8.6996 train loss(phase ant): 1.5984 train loss(phase all): 10.2980 train accu(phase): 0.9961 valid in:  0m 3s valid loss(phase): 4.0399 valid accu(phase): 0.8827 valid accu(video): 0.8779 valid in_MAE(phase): 1.3365 valid pMAE(phase): 1.5486 valid eMAE(phase): 0.9695 test in:  0m12s test accu(phase): 0.8549 test accu(video): 0.8638 test in_MAE(phase): 1.2722 test pMAE(phase): 1.5683 test eMAE(phase): 1.0685
+val_precision_each_phase: [0.98356511 0.92642266 0.76329992 0.96296795 0.77809798 0.82121006
+ 0.48769575]
+val_recall_each_phase: [0.62339744 0.96011951 0.76095311 0.950299   0.60948081 0.63915344
+ 0.97212932]
+val_precision_phase 0.817608490922314
+val_recall_phase 0.7879332336458681
+val_jaccard_phase 0.6575443457061857
+best_epoch 1
+epoch:   34 train in:  0m 2s train loss(phase): 8.6678 train loss(phase ant): 1.6113 train loss(phase all): 10.2791 train accu(phase): 0.9962 valid in:  0m 3s valid loss(phase): 4.1385 valid accu(phase): 0.8808 valid accu(video): 0.8761 valid in_MAE(phase): 1.3560 valid pMAE(phase): 1.5165 valid eMAE(phase): 1.0350 test in:  0m12s test accu(phase): 0.8525 test accu(video): 0.8614 test in_MAE(phase): 1.2995 test pMAE(phase): 1.5348 test eMAE(phase): 1.1602
+val_precision_each_phase: [0.98352345 0.92602808 0.76091954 0.96354307 0.7746077  0.81912682
+ 0.47835616]
+val_recall_each_phase: [0.62179487 0.95946999 0.76325903 0.94830565 0.61286682 0.62539683
+ 0.97324415]
+val_precision_phase 0.8151578331228188
+val_recall_phase 0.7863339047235947
+val_jaccard_phase 0.6542011661454313
+best_epoch 1
+epoch:   35 train in:  0m 2s train loss(phase): 8.6710 train loss(phase ant): 1.6002 train loss(phase all): 10.2712 train accu(phase): 0.9963 valid in:  0m 3s valid loss(phase): 4.1131 valid accu(phase): 0.8808 valid accu(video): 0.8760 valid in_MAE(phase): 1.3159 valid pMAE(phase): 1.5229 valid eMAE(phase): 0.9994 test in:  0m12s test accu(phase): 0.8535 test accu(video): 0.8625 test in_MAE(phase): 1.2544 test pMAE(phase): 1.5432 test eMAE(phase): 1.0951
+val_precision_each_phase: [0.98356511 0.92664577 0.76325903 0.96346232 0.77180233 0.81963788
+ 0.47523136]
+val_recall_each_phase: [0.62339744 0.95998961 0.76325903 0.94963455 0.5993228  0.62275132
+ 0.97324415]
+val_precision_phase 0.8148005410513186
+val_recall_phase 0.784514127943223
+val_jaccard_phase 0.6526920681808381
+best_epoch 1
+epoch:   36 train in:  0m 2s train loss(phase): 8.6466 train loss(phase ant): 1.6001 train loss(phase all): 10.2467 train accu(phase): 0.9963 valid in:  0m 3s valid loss(phase): 4.0715 valid accu(phase): 0.8834 valid accu(video): 0.8792 valid in_MAE(phase): 1.2912 valid pMAE(phase): 1.5213 valid eMAE(phase): 1.0381 test in:  0m12s test accu(phase): 0.8539 test accu(video): 0.8630 test in_MAE(phase): 1.2689 test pMAE(phase): 1.5417 test eMAE(phase): 1.1583
+val_precision_each_phase: [0.98346056 0.92562915 0.76484194 0.96344753 0.77123288 0.83425414
+ 0.48962423]
+val_recall_each_phase: [0.61939103 0.96037932 0.76249039 0.94923588 0.63544018 0.63915344
+ 0.97324415]
+val_precision_phase 0.8189272044270728
+val_recall_phase 0.7913334834638712
+val_jaccard_phase 0.6604901136902442
+best_epoch 1
+epoch:   37 train in:  0m 2s train loss(phase): 8.6557 train loss(phase ant): 1.5842 train loss(phase all): 10.2399 train accu(phase): 0.9964 valid in:  0m 3s valid loss(phase): 4.1384 valid accu(phase): 0.8807 valid accu(video): 0.8760 valid in_MAE(phase): 1.3390 valid pMAE(phase): 1.5419 valid eMAE(phase): 0.9689 test in:  0m12s test accu(phase): 0.8516 test accu(video): 0.8605 test in_MAE(phase): 1.2801 test pMAE(phase): 1.5603 test eMAE(phase): 1.0862
+val_precision_each_phase: [0.98352345 0.92649272 0.76095311 0.96275806 0.76386913 0.81674674
+ 0.48178808]
+val_recall_each_phase: [0.62179487 0.95946999 0.76095311 0.94817276 0.60609481 0.62962963
+ 0.97324415]
+val_precision_phase 0.8137330427006093
+val_recall_phase 0.7856227599112803
+val_jaccard_phase 0.6533416803619855
+best_epoch 1
+epoch:   38 train in:  0m 2s train loss(phase): 8.6306 train loss(phase ant): 1.6024 train loss(phase all): 10.2330 train accu(phase): 0.9963 valid in:  0m 3s valid loss(phase): 4.1008 valid accu(phase): 0.8825 valid accu(video): 0.8782 valid in_MAE(phase): 1.3160 valid pMAE(phase): 1.5196 valid eMAE(phase): 0.9491 test in:  0m12s test accu(phase): 0.8535 test accu(video): 0.8625 test in_MAE(phase): 1.2697 test pMAE(phase): 1.5433 test eMAE(phase): 1.0624
+val_precision_each_phase: [0.98352345 0.9265388  0.76297444 0.96204576 0.77077364 0.81818182
+ 0.49126761]
+val_recall_each_phase: [0.62179487 0.96011951 0.75710992 0.94990033 0.60722348 0.64285714
+ 0.97212932]
+val_precision_phase 0.8164722154405221
+val_recall_phase 0.7873049385917719
+val_jaccard_phase 0.6567718837086138
+best_epoch 1
+epoch:   39 train in:  0m 2s train loss(phase): 8.6348 train loss(phase ant): 1.5843 train loss(phase all): 10.2191 train accu(phase): 0.9965 valid in:  0m 3s valid loss(phase): 4.0849 valid accu(phase): 0.8824 valid accu(video): 0.8780 valid in_MAE(phase): 1.2890 valid pMAE(phase): 1.5119 valid eMAE(phase): 1.0092 test in:  0m12s test accu(phase): 0.8546 test accu(video): 0.8634 test in_MAE(phase): 1.2376 test pMAE(phase): 1.5319 test eMAE(phase): 1.0832
+val_precision_each_phase: [0.98352345 0.92607443 0.76438987 0.9635066  0.77496274 0.81586022
+ 0.48796866]
+val_recall_each_phase: [0.62179487 0.96011951 0.76556495 0.95083056 0.58690745 0.64232804
+ 0.97212932]
+val_precision_phase 0.8166122802753834
+val_recall_phase 0.7856678156674547
+val_jaccard_phase 0.6554311455348987
+best_epoch 1
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+epoch:   40 train in:  0m 2s train loss(phase): 8.6180 train loss(phase ant): 1.5845 train loss(phase all): 10.2025 train accu(phase): 0.9966 valid in:  0m 3s valid loss(phase): 4.0869 valid accu(phase): 0.8823 valid accu(video): 0.8778 valid in_MAE(phase): 1.2599 valid pMAE(phase): 1.5358 valid eMAE(phase): 1.0217 test in:  0m12s test accu(phase): 0.8532 test accu(video): 0.8622 test in_MAE(phase): 1.2176 test pMAE(phase): 1.5562 test eMAE(phase): 1.1270
+val_precision_each_phase: [0.98356511 0.9264411  0.76452363 0.96254883 0.76353276 0.82188987
+ 0.48796866]
+val_recall_each_phase: [0.62339744 0.96037932 0.75864719 0.94950166 0.60496614 0.63968254
+ 0.97212932]
+val_precision_phase 0.8157814238496375
+val_recall_phase 0.7869576586270449
+val_jaccard_phase 0.6560682592599847
+best_epoch 1
+epoch:   41 train in:  0m 2s train loss(phase): 8.5941 train loss(phase ant): 1.5974 train loss(phase all): 10.1916 train accu(phase): 0.9967 valid in:  0m 3s valid loss(phase): 4.1874 valid accu(phase): 0.8799 valid accu(video): 0.8752 valid in_MAE(phase): 1.3668 valid pMAE(phase): 1.5172 valid eMAE(phase): 1.0424 test in:  0m12s test accu(phase): 0.8503 test accu(video): 0.8595 test in_MAE(phase): 1.3233 test pMAE(phase): 1.5396 test eMAE(phase): 1.1841
+val_precision_each_phase: [0.98341837 0.92607443 0.76223776 0.96151258 0.76148148 0.81526926
+ 0.47912088]
+val_recall_each_phase: [0.61778846 0.96011951 0.75403536 0.94950166 0.58013544 0.63280423
+ 0.97212932]
+val_precision_phase 0.8127306794803786
+val_recall_phase 0.7809305692267247
+val_jaccard_phase 0.6493404709341565
+best_epoch 1
+epoch:   42 train in:  0m 2s train loss(phase): 8.6294 train loss(phase ant): 1.5833 train loss(phase all): 10.2127 train accu(phase): 0.9965 valid in:  0m 3s valid loss(phase): 4.1645 valid accu(phase): 0.8813 valid accu(video): 0.8771 valid in_MAE(phase): 1.3384 valid pMAE(phase): 1.5293 valid eMAE(phase): 0.9810 test in:  0m12s test accu(phase): 0.8522 test accu(video): 0.8615 test in_MAE(phase): 1.2850 test pMAE(phase): 1.5513 test eMAE(phase): 1.0746
+val_precision_each_phase: [0.98352345 0.92659401 0.76627451 0.96087132 0.75561798 0.82847222
+ 0.48203427]
+val_recall_each_phase: [0.62179487 0.96089893 0.7509608  0.94963455 0.60722348 0.63121693
+ 0.97212932]
+val_precision_phase 0.814769680198774
+val_recall_phase 0.7848369835619343
+val_jaccard_phase 0.6535522714535303
+best_epoch 1
+epoch:   43 train in:  0m 2s train loss(phase): 8.5903 train loss(phase ant): 1.5854 train loss(phase all): 10.1757 train accu(phase): 0.9966 valid in:  0m 3s valid loss(phase): 4.1502 valid accu(phase): 0.8810 valid accu(video): 0.8765 valid in_MAE(phase): 1.2817 valid pMAE(phase): 1.5030 valid eMAE(phase): 0.9956 test in:  0m12s test accu(phase): 0.8512 test accu(video): 0.8600 test in_MAE(phase): 1.2574 test pMAE(phase): 1.5307 test eMAE(phase): 1.1388
+val_precision_each_phase: [0.98346056 0.92600025 0.75899005 0.96303292 0.75936599 0.8130464
+ 0.48768197]
+val_recall_each_phase: [0.61939103 0.95908028 0.76249039 0.94857143 0.59480813 0.63968254
+ 0.97101449]
+val_precision_phase 0.8130825930090883
+val_recall_phase 0.7850054693797089
+val_jaccard_phase 0.6531049218903258
+best_epoch 1
+epoch:   44 train in:  0m 2s train loss(phase): 8.6036 train loss(phase ant): 1.5786 train loss(phase all): 10.1823 train accu(phase): 0.9967 valid in:  0m 3s valid loss(phase): 4.1209 valid accu(phase): 0.8821 valid accu(video): 0.8780 valid in_MAE(phase): 1.2534 valid pMAE(phase): 1.5155 valid eMAE(phase): 1.0078 test in:  0m12s test accu(phase): 0.8514 test accu(video): 0.8604 test in_MAE(phase): 1.2152 test pMAE(phase): 1.5400 test eMAE(phase): 1.0833
+val_precision_each_phase: [0.98350254 0.92645582 0.75787855 0.96215488 0.74899329 0.84577465
+ 0.48442714]
+val_recall_each_phase: [0.62099359 0.95895038 0.75787855 0.94936877 0.62979684 0.63544974
+ 0.97101449]
+val_precision_phase 0.8155981251746928
+val_recall_phase 0.7890646228741627
+val_jaccard_phase 0.6568674803542759
+best_epoch 1
+epoch:   45 train in:  0m 2s train loss(phase): 8.5715 train loss(phase ant): 1.5827 train loss(phase all): 10.1542 train accu(phase): 0.9967 valid in:  0m 3s valid loss(phase): 4.1193 valid accu(phase): 0.8810 valid accu(video): 0.8765 valid in_MAE(phase): 1.2812 valid pMAE(phase): 1.5242 valid eMAE(phase): 1.0053 test in:  0m12s test accu(phase): 0.8533 test accu(video): 0.8620 test in_MAE(phase): 1.2474 test pMAE(phase): 1.5469 test eMAE(phase): 1.1067
+val_precision_each_phase: [0.98352345 0.9260559  0.76234568 0.96272372 0.74458874 0.8356546
+ 0.47830862]
+val_recall_each_phase: [0.62179487 0.9598597  0.75941583 0.95069767 0.58239278 0.63492063
+ 0.97101449]
+val_precision_phase 0.8133143872006569
+val_recall_phase 0.7828708554577825
+val_jaccard_phase 0.6513341886454735
+best_epoch 1
+epoch:   46 train in:  0m 2s train loss(phase): 8.5765 train loss(phase ant): 1.5722 train loss(phase all): 10.1488 train accu(phase): 0.9967 valid in:  0m 3s valid loss(phase): 4.1318 valid accu(phase): 0.8805 valid accu(video): 0.8758 valid in_MAE(phase): 1.2922 valid pMAE(phase): 1.5126 valid eMAE(phase): 0.9869 test in:  0m12s test accu(phase): 0.8519 test accu(video): 0.8607 test in_MAE(phase): 1.2586 test pMAE(phase): 1.5364 test eMAE(phase): 1.1024
+val_precision_each_phase: [0.98346056 0.92623259 0.75862069 0.96271369 0.73982558 0.83598616
+ 0.47611203]
+val_recall_each_phase: [0.61939103 0.95908028 0.76095311 0.95043189 0.5744921  0.63915344
+ 0.96655518]
+val_precision_phase 0.8118501855886647
+val_recall_phase 0.7814367193334041
+val_jaccard_phase 0.6496577337005995
+best_epoch 1
+epoch:   47 train in:  0m 2s train loss(phase): 8.5681 train loss(phase ant): 1.5724 train loss(phase all): 10.1406 train accu(phase): 0.9967 valid in:  0m 3s valid loss(phase): 4.2071 valid accu(phase): 0.8798 valid accu(video): 0.8756 valid in_MAE(phase): 1.2670 valid pMAE(phase): 1.4887 valid eMAE(phase): 1.0352 test in:  0m12s test accu(phase): 0.8483 test accu(video): 0.8575 test in_MAE(phase): 1.2280 test pMAE(phase): 1.5142 test eMAE(phase): 1.1452
+val_precision_each_phase: [0.98348158 0.92592128 0.76061776 0.96205779 0.72874494 0.84240283
+ 0.47449259]
+val_recall_each_phase: [0.62019231 0.9595999  0.75710992 0.94684385 0.60948081 0.63068783
+ 0.96432553]
+val_precision_phase 0.8111026816402765
+val_recall_phase 0.7840343065587569
+val_jaccard_phase 0.6509106842015061
+best_epoch 1
+epoch:   48 train in:  0m 2s train loss(phase): 8.5757 train loss(phase ant): 1.5695 train loss(phase all): 10.1452 train accu(phase): 0.9967 valid in:  0m 3s valid loss(phase): 4.1887 valid accu(phase): 0.8789 valid accu(video): 0.8744 valid in_MAE(phase): 1.2870 valid pMAE(phase): 1.5207 valid eMAE(phase): 1.0148 test in:  0m12s test accu(phase): 0.8494 test accu(video): 0.8585 test in_MAE(phase): 1.2496 test pMAE(phase): 1.5438 test eMAE(phase): 1.1293
+val_precision_each_phase: [0.98346056 0.92596311 0.75613497 0.96217526 0.73132184 0.84110169
+ 0.46775068]
+val_recall_each_phase: [0.61939103 0.95856067 0.75787855 0.94990033 0.5744921  0.63015873
+ 0.96209588]
+val_precision_phase 0.8097011581119321
+val_recall_phase 0.7789253260790524
+val_jaccard_phase 0.64640443350414
+best_epoch 1
+epoch:   49 train in:  0m 2s train loss(phase): 8.5589 train loss(phase ant): 1.5735 train loss(phase all): 10.1323 train accu(phase): 0.9968 valid in:  0m 3s valid loss(phase): 4.1736 valid accu(phase): 0.8806 valid accu(video): 0.8765 valid in_MAE(phase): 1.3103 valid pMAE(phase): 1.5257 valid eMAE(phase): 0.9761 test in:  0m12s test accu(phase): 0.8479 test accu(video): 0.8567 test in_MAE(phase): 1.2664 test pMAE(phase): 1.5529 test eMAE(phase): 1.0733
+val_precision_each_phase: [0.98343949 0.92578664 0.7596302  0.96219792 0.72797927 0.84458509
+ 0.47701794]
+val_recall_each_phase: [0.61858974 0.95934009 0.75787855 0.94710963 0.63431151 0.63544974
+ 0.94871795]
+val_precision_phase 0.8115195073530727
+val_recall_phase 0.7859138882880901
+val_jaccard_phase 0.6534552162037891
+best_epoch 1
