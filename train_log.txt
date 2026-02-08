@@ -1,0 +1,2118 @@
+nohup: ignoring input
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+train_paths_80  :  71032
+train_labels_80 :  71032
+valid_paths_80  :  15312
+valid_labels_80 :  15312
+test_paths_80  :  98234
+test_labels_80 :  98234
+train_paths_80_seg  :  71032
+valid_paths_80_seg  :  15312
+test_paths_80_seg  :  98234
+num train start idx 80:  71032
+num of all train use:  71032
+num of all valid use:  15312
+num of all test use:  98234
+-----epoch: 0-----
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 964.7401
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:    0 train in: 16m 5s train loss(phase): 0.6331 train accu(phase): 0.7655 valid in:  0m16s valid loss(phase): 1.0918 valid accu(phase): 0.6475 test in:  1m39s test loss(phase): 0.9796 test accu(phase): 0.6799 test in_MAE(phase): 1.5530 test pMAE(phase): 1.5648 test eMAE(phase): 2.6172
+val_precision_each_phase: [0.57541899 0.90711955 0.79047619 0.54044118 0.65795207 0.67718941
+ 0.20818071]
+val_recall_each_phase: [0.15749235 0.66056456 0.2092437  0.866192   0.4778481  0.53499598
+ 0.93681319]
+val_precision_phase 0.6223968719163221
+val_recall_phase 0.5490214107215694
+val_jaccard_phase 0.3530289825786444
+best_epoch 0
+-----epoch: 1-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 954.7532
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:    1 train in: 15m55s train loss(phase): 0.3530 train accu(phase): 0.8737 valid in:  0m17s valid loss(phase): 0.7607 valid accu(phase): 0.7640 test in:  1m41s test loss(phase): 0.9473 test accu(phase): 0.7114 test in_MAE(phase): 1.5566 test pMAE(phase): 1.6767 test eMAE(phase): 2.4718
+val_precision_each_phase: [0.69034091 0.78434763 0.80936819 0.89700511 0.8047619  0.76026743
+ 0.27304048]
+val_recall_each_phase: [0.37155963 0.95095025 0.62436975 0.60299534 0.53481013 0.64038616
+ 0.87087912]
+val_precision_phase 0.7170188082180792
+val_recall_phase 0.6565643396527311
+val_jaccard_phase 0.4927436439907459
+best_epoch 1
+-----epoch: 2-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 946.5772
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:    2 train in: 15m47s train loss(phase): 0.2801 train accu(phase): 0.9002 valid in:  0m16s valid loss(phase): 0.7188 valid accu(phase): 0.7775 test in:  1m38s test loss(phase): 0.8417 test accu(phase): 0.7375 test in_MAE(phase): 1.5207 test pMAE(phase): 1.5725 test eMAE(phase): 2.3119
+val_precision_each_phase: [0.65634218 0.86374524 0.51115724 0.8383659  0.74551387 0.82273201
+ 0.40454545]
+val_recall_each_phase: [0.68042813 0.85662381 0.82773109 0.69531058 0.72310127 0.63475463
+ 0.73351648]
+val_precision_phase 0.691771699551845
+val_recall_phase 0.7359237137577347
+val_jaccard_phase 0.5460727610766928
+best_epoch 2
+-----epoch: 3-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 960.5417
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:    3 train in: 16m 1s train loss(phase): 0.2231 train accu(phase): 0.9211 valid in:  0m16s valid loss(phase): 0.7652 valid accu(phase): 0.7657 test in:  1m39s test loss(phase): 0.9093 test accu(phase): 0.7313 test in_MAE(phase): 1.6281 test pMAE(phase): 1.5980 test eMAE(phase): 2.6333
+val_precision_each_phase: [0.5193133  0.87186509 0.76458952 0.87353207 0.60972569 0.54022376
+ 0.28651059]
+val_recall_each_phase: [0.37003058 0.84530464 0.64957983 0.71225141 0.77373418 0.8157683
+ 0.70604396]
+val_precision_phase 0.6379657167822689
+val_recall_phase 0.6961018428464071
+val_jaccard_phase 0.49563249657535396
+best_epoch 2
+-----epoch: 4-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 953.9106
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:    4 train in: 15m54s train loss(phase): 0.2001 train accu(phase): 0.9287 valid in:  0m17s valid loss(phase): 1.1296 valid accu(phase): 0.7021 test in:  1m46s test loss(phase): 1.2561 test accu(phase): 0.6869 test in_MAE(phase): 1.3309 test pMAE(phase): 1.6019 test eMAE(phase): 1.9368
+val_precision_each_phase: [0.71354167 0.94087346 0.49234694 0.59725984 0.76430976 0.83797217
+ 0.42172524]
+val_recall_each_phase: [0.41896024 0.58705981 0.81092437 0.92045176 0.71835443 0.67819791
+ 0.72527473]
+val_precision_phase 0.6811470105878454
+val_recall_phase 0.6941747491070842
+val_jaccard_phase 0.4979565172825556
+best_epoch 2
+-----epoch: 5-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 943.4384
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:    5 train in: 15m43s train loss(phase): 0.1687 train accu(phase): 0.9404 valid in:  0m16s valid loss(phase): 0.9262 valid accu(phase): 0.7557 test in:  1m38s test loss(phase): 1.0292 test accu(phase): 0.7249 test in_MAE(phase): 1.3208 test pMAE(phase): 1.6084 test eMAE(phase): 1.8064
+val_precision_each_phase: [0.69162996 0.89814374 0.72387344 0.66154958 0.44015444 0.88492063
+ 0.63576159]
+val_recall_each_phase: [0.24006116 0.7910844  0.63445378 0.8993371  0.90189873 0.538214
+ 0.26373626]
+val_precision_phase 0.7051476255826508
+val_recall_phase 0.6098264917934478
+val_jaccard_phase 0.4602487330375718
+best_epoch 2
+-----epoch: 6-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 989.3437
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:    6 train in: 16m29s train loss(phase): 0.1510 train accu(phase): 0.9459 valid in:  0m16s valid loss(phase): 0.8231 valid accu(phase): 0.7779 test in:  1m39s test loss(phase): 0.9337 test accu(phase): 0.7524 test in_MAE(phase): 1.3652 test pMAE(phase): 1.5930 test eMAE(phase): 1.9315
+val_precision_each_phase: [0.80289855 0.91847914 0.81081081 0.70897894 0.51908397 0.68226601
+ 0.47027972]
+val_recall_each_phase: [0.4235474  0.79667412 0.60504202 0.87625829 0.86075949 0.66854385
+ 0.73901099]
+val_precision_phase 0.7018281629683149
+val_recall_phase 0.7099765930757982
+val_jaccard_phase 0.5277647991575143
+best_epoch 6
+-----epoch: 7-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 941.0560
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:    7 train in: 15m41s train loss(phase): 0.1352 train accu(phase): 0.9515 valid in:  0m17s valid loss(phase): 1.0203 valid accu(phase): 0.7482 test in:  1m40s test loss(phase): 1.3285 test accu(phase): 0.7029 test in_MAE(phase): 1.4636 test pMAE(phase): 1.7280 test eMAE(phase): 1.9572
+val_precision_each_phase: [0.74766355 0.91264963 0.66805411 0.62609849 0.6509434  0.9292365
+ 0.39379845]
+val_recall_each_phase: [0.24464832 0.78842929 0.5394958  0.92708078 0.76424051 0.40144811
+ 0.6978022 ]
+val_precision_phase 0.7040634465275204
+val_recall_phase 0.6233064279790389
+val_jaccard_phase 0.4641868502488135
+best_epoch 6
+-----epoch: 8-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 956.0899
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:    8 train in: 15m56s train loss(phase): 0.1238 train accu(phase): 0.9557 valid in:  0m16s valid loss(phase): 0.8793 valid accu(phase): 0.7630 test in:  1m40s test loss(phase): 0.9939 test accu(phase): 0.7481 test in_MAE(phase): 1.4089 test pMAE(phase): 1.5725 test eMAE(phase): 2.1259
+val_precision_each_phase: [0.64547206 0.92849864 0.78958333 0.69075991 0.68895801 0.65568862
+ 0.31641086]
+val_recall_each_phase: [0.51223242 0.76397429 0.63697479 0.86815615 0.70094937 0.70474658
+ 0.73626374]
+val_precision_phase 0.6736244920416549
+val_recall_phase 0.7033281896560526
+val_jaccard_phase 0.517434529053834
+best_epoch 6
+-----epoch: 9-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 961.2844
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:    9 train in: 16m 1s train loss(phase): 0.1150 train accu(phase): 0.9594 valid in:  0m17s valid loss(phase): 0.7196 valid accu(phase): 0.8002 test in:  1m39s test loss(phase): 0.9640 test accu(phase): 0.7534 test in_MAE(phase): 1.3329 test pMAE(phase): 1.5968 test eMAE(phase): 1.8283
+val_precision_each_phase: [0.84384384 0.90716734 0.63931171 0.74876211 0.78003384 0.76139979
+ 0.44982699]
+val_recall_each_phase: [0.42966361 0.85075461 0.81176471 0.85391603 0.72943038 0.57763475
+ 0.71428571]
+val_precision_phase 0.7329065176316234
+val_recall_phase 0.7096356867181222
+val_jaccard_phase 0.553781289875645
+best_epoch 9
+-----epoch: 10-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 1023.9860
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   10 train in: 17m 4s train loss(phase): 0.1060 train accu(phase): 0.9628 valid in:  0m17s valid loss(phase): 0.9085 valid accu(phase): 0.7957 test in:  1m47s test loss(phase): 1.0781 test accu(phase): 0.7619 test in_MAE(phase): 1.3810 test pMAE(phase): 1.6329 test eMAE(phase): 1.8959
+val_precision_each_phase: [0.68014706 0.90193511 0.83026316 0.68944571 0.6819407  0.80823681
+ 0.62643678]
+val_recall_each_phase: [0.56574924 0.86626607 0.5302521  0.891726   0.80063291 0.50522928
+ 0.5989011 ]
+val_precision_phase 0.7454864751021305
+val_recall_phase 0.6798223859313769
+val_jaccard_phase 0.5469334250325723
+best_epoch 9
+-----epoch: 11-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 996.2911
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   11 train in: 16m36s train loss(phase): 0.0989 train accu(phase): 0.9648 valid in:  0m16s valid loss(phase): 1.6435 valid accu(phase): 0.6253 test in:  1m39s test loss(phase): 1.3367 test accu(phase): 0.6887 test in_MAE(phase): 1.4314 test pMAE(phase): 1.6459 test eMAE(phase): 2.0804
+val_precision_each_phase: [0.75159236 0.88134016 0.77042802 0.46508516 0.59378468 0.8655914
+ 0.56      ]
+val_recall_each_phase: [0.5412844  0.529346   0.33277311 0.93862018 0.84651899 0.38857603
+ 0.53846154]
+val_precision_phase 0.6982602528786188
+val_recall_phase 0.587940035642713
+val_jaccard_phase 0.4268998260775211
+best_epoch 9
+-----epoch: 12-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 993.8391
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   12 train in: 16m34s train loss(phase): 0.0915 train accu(phase): 0.9676 valid in:  0m16s valid loss(phase): 0.8475 valid accu(phase): 0.7891 test in:  1m39s test loss(phase): 0.8805 test accu(phase): 0.7711 test in_MAE(phase): 1.4044 test pMAE(phase): 1.5904 test eMAE(phase): 2.1579
+val_precision_each_phase: [0.72236504 0.8681831  0.78449144 0.72884211 0.76656151 0.89699571
+ 0.39401821]
+val_recall_each_phase: [0.42966361 0.85871996 0.65462185 0.84998772 0.76898734 0.50442478
+ 0.83241758]
+val_precision_phase 0.7373510163267444
+val_recall_phase 0.6998318342245142
+val_jaccard_phase 0.5420002327943213
+best_epoch 9
+-----epoch: 13-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 1015.6671
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   13 train in: 16m56s train loss(phase): 0.0850 train accu(phase): 0.9697 valid in:  0m16s valid loss(phase): 0.7834 valid accu(phase): 0.7893 test in:  1m38s test loss(phase): 1.2796 test accu(phase): 0.6964 test in_MAE(phase): 1.4693 test pMAE(phase): 1.6657 test eMAE(phase): 2.2523
+val_precision_each_phase: [0.61050725 0.82440109 0.71554487 0.95110772 0.6696562  0.61895911
+ 0.47368421]
+val_recall_each_phase: [0.51529052 0.93292342 0.75042017 0.61134299 0.70886076 0.80370072
+ 0.66758242]
+val_precision_phase 0.6948372060421215
+val_recall_phase 0.7128744286294256
+val_jaccard_phase 0.5404203494979767
+best_epoch 9
+-----epoch: 14-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 977.3959
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   14 train in: 16m17s train loss(phase): 0.0446 train accu(phase): 0.9843 valid in:  0m17s valid loss(phase): 0.8383 valid accu(phase): 0.8060 test in:  1m43s test loss(phase): 0.8667 test accu(phase): 0.7992 test in_MAE(phase): 1.3995 test pMAE(phase): 1.5716 test eMAE(phase): 2.0837
+val_precision_each_phase: [0.75877193 0.92004381 0.73521851 0.73497942 0.72011252 0.7834507
+ 0.47884941]
+val_recall_each_phase: [0.52905199 0.82168809 0.7210084  0.87699484 0.81012658 0.71600965
+ 0.77747253]
+val_precision_phase 0.7330609005557174
+val_recall_phase 0.7503360132778801
+val_jaccard_phase 0.5847786627409313
+best_epoch 14
+-----epoch: 15-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 977.6821
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   15 train in: 16m18s train loss(phase): 0.0362 train accu(phase): 0.9871 valid in:  0m17s valid loss(phase): 0.7614 valid accu(phase): 0.8212 test in:  1m43s test loss(phase): 0.9223 test accu(phase): 0.7990 test in_MAE(phase): 1.3924 test pMAE(phase): 1.5769 test eMAE(phase): 2.0469
+val_precision_each_phase: [0.77209302 0.91324944 0.72155927 0.78199687 0.69109948 0.79908257
+ 0.49350649]
+val_recall_each_phase: [0.50764526 0.86207378 0.76218487 0.85956298 0.83544304 0.70072405
+ 0.73076923]
+val_precision_phase 0.7389410211242445
+val_recall_phase 0.7512004596098977
+val_jaccard_phase 0.5917591634439058
+best_epoch 15
+-----epoch: 16-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 974.1078
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   16 train in: 16m14s train loss(phase): 0.0323 train accu(phase): 0.9884 valid in:  0m17s valid loss(phase): 0.8149 valid accu(phase): 0.8173 test in:  1m42s test loss(phase): 0.9197 test accu(phase): 0.8038 test in_MAE(phase): 1.3938 test pMAE(phase): 1.5737 test eMAE(phase): 2.0593
+val_precision_each_phase: [0.775      0.90628689 0.759447   0.76422058 0.72910663 0.80358744
+ 0.47986577]
+val_recall_each_phase: [0.52140673 0.85816098 0.69243697 0.86422784 0.80063291 0.72083669
+ 0.78571429]
+val_precision_phase 0.7453591893402368
+val_recall_phase 0.7490594872627462
+val_jaccard_phase 0.5922177172934686
+best_epoch 15
+-----epoch: 17-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 971.2888
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   17 train in: 16m11s train loss(phase): 0.0292 train accu(phase): 0.9901 valid in:  0m17s valid loss(phase): 0.8070 valid accu(phase): 0.8204 test in:  1m42s test loss(phase): 0.9693 test accu(phase): 0.7995 test in_MAE(phase): 1.3920 test pMAE(phase): 1.5706 test eMAE(phase): 2.0320
+val_precision_each_phase: [0.76939655 0.91514789 0.70863025 0.77629827 0.70754717 0.82319925
+ 0.48954704]
+val_recall_each_phase: [0.54587156 0.85606484 0.75210084 0.85882642 0.8306962  0.7079646
+ 0.77197802]
+val_precision_phase 0.7413952027940242
+val_recall_phase 0.760500354973667
+val_jaccard_phase 0.5979621305113644
+best_epoch 15
+-----epoch: 18-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 986.8732
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   18 train in: 16m27s train loss(phase): 0.0284 train accu(phase): 0.9900 valid in:  0m17s valid loss(phase): 0.8329 valid accu(phase): 0.8192 test in:  1m42s test loss(phase): 0.9724 test accu(phase): 0.8014 test in_MAE(phase): 1.4164 test pMAE(phase): 1.5784 test eMAE(phase): 2.1169
+val_precision_each_phase: [0.79807692 0.90069384 0.76443203 0.77510577 0.69721116 0.80454545
+ 0.47857143]
+val_recall_each_phase: [0.50764526 0.87073784 0.68991597 0.85465259 0.8306962  0.71198713
+ 0.73626374]
+val_precision_phase 0.7455195143725852
+val_recall_phase 0.7431283893764968
+val_jaccard_phase 0.5891591213468385
+best_epoch 15
+-----epoch: 19-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 997.2987
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   19 train in: 16m37s train loss(phase): 0.0263 train accu(phase): 0.9903 valid in:  0m17s valid loss(phase): 0.8428 valid accu(phase): 0.8191 test in:  1m42s test loss(phase): 0.9821 test accu(phase): 0.8006 test in_MAE(phase): 1.3834 test pMAE(phase): 1.5728 test eMAE(phase): 2.0316
+val_precision_each_phase: [0.78211009 0.90379562 0.72939217 0.77556945 0.73571429 0.81255858
+ 0.48103448]
+val_recall_each_phase: [0.52140673 0.86514813 0.73613445 0.85268844 0.81487342 0.69750603
+ 0.76648352]
+val_precision_phase 0.745739239990825
+val_recall_phase 0.7506058161560348
+val_jaccard_phase 0.5943360184786085
+best_epoch 15
+-----epoch: 20-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 990.0507
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   20 train in: 16m30s train loss(phase): 0.0250 train accu(phase): 0.9916 valid in:  0m16s valid loss(phase): 0.8531 valid accu(phase): 0.8190 test in:  1m41s test loss(phase): 1.0076 test accu(phase): 0.7989 test in_MAE(phase): 1.3702 test pMAE(phase): 1.5753 test eMAE(phase): 2.0015
+val_precision_each_phase: [0.78828829 0.9103285  0.72970711 0.76441373 0.72816901 0.80851064
+ 0.50555556]
+val_recall_each_phase: [0.5351682  0.85969816 0.73277311 0.86913823 0.81803797 0.67256637
+ 0.75      ]
+val_precision_phase 0.7478532631839843
+val_recall_phase 0.7481974334388906
+val_jaccard_phase 0.5945447295557945
+best_epoch 15
+-----epoch: 21-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 977.8008
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   21 train in: 16m18s train loss(phase): 0.0235 train accu(phase): 0.9918 valid in:  0m17s valid loss(phase): 0.9567 valid accu(phase): 0.8080 test in:  1m43s test loss(phase): 1.0612 test accu(phase): 0.7972 test in_MAE(phase): 1.4017 test pMAE(phase): 1.5875 test eMAE(phase): 2.0349
+val_precision_each_phase: [0.78971963 0.91264648 0.73753281 0.74067164 0.70067114 0.79617225
+ 0.48021583]
+val_recall_each_phase: [0.51681957 0.83803801 0.70840336 0.87724036 0.82594937 0.66934835
+ 0.73351648]
+val_precision_phase 0.7368042529119888
+val_recall_phase 0.7384736440013376
+val_jaccard_phase 0.5796900487615696
+best_epoch 15
+-----epoch: 22-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 985.7668
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   22 train in: 16m26s train loss(phase): 0.0215 train accu(phase): 0.9925 valid in:  0m17s valid loss(phase): 0.9364 valid accu(phase): 0.8137 test in:  1m42s test loss(phase): 1.0829 test accu(phase): 0.7962 test in_MAE(phase): 1.4087 test pMAE(phase): 1.5772 test eMAE(phase): 2.0971
+val_precision_each_phase: [0.78506787 0.91501887 0.76301115 0.74968448 0.70013569 0.79414456
+ 0.48034188]
+val_recall_each_phase: [0.53058104 0.8471213  0.68991597 0.87503069 0.8164557  0.69831054
+ 0.77197802]
+val_precision_phase 0.7410577845277061
+val_recall_phase 0.747056178580569
+val_jaccard_phase 0.5872612582043372
+best_epoch 15
+-----epoch: 23-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 999.9336
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   23 train in: 16m40s train loss(phase): 0.0218 train accu(phase): 0.9924 valid in:  0m17s valid loss(phase): 0.8779 valid accu(phase): 0.8178 test in:  1m52s test loss(phase): 1.0481 test accu(phase): 0.8004 test in_MAE(phase): 1.4034 test pMAE(phase): 1.5858 test eMAE(phase): 2.0542
+val_precision_each_phase: [0.77777778 0.90270506 0.75311943 0.77339793 0.68331143 0.80614203
+ 0.48698885]
+val_recall_each_phase: [0.51376147 0.86738401 0.71008403 0.86226369 0.82278481 0.67578439
+ 0.71978022]
+val_precision_phase 0.7404917875542382
+val_recall_phase 0.7388346607319297
+val_jaccard_phase 0.5845609813864138
+best_epoch 15
+-----epoch: 24-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 996.9646
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   24 train in: 16m37s train loss(phase): 0.0213 train accu(phase): 0.9925 valid in:  0m17s valid loss(phase): 0.9548 valid accu(phase): 0.8126 test in:  1m42s test loss(phase): 1.0730 test accu(phase): 0.7986 test in_MAE(phase): 1.4108 test pMAE(phase): 1.5843 test eMAE(phase): 2.0437
+val_precision_each_phase: [0.76315789 0.92273288 0.75282855 0.75295858 0.6981383  0.77846975
+ 0.4601626 ]
+val_recall_each_phase: [0.53211009 0.83608161 0.72689076 0.87478517 0.8306962  0.70394208
+ 0.77747253]
+val_precision_phase 0.7326355075009223
+val_recall_phase 0.7545683477352997
+val_jaccard_phase 0.5869794967245718
+best_epoch 15
+-----epoch: 25-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 993.9628
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   25 train in: 16m34s train loss(phase): 0.0179 train accu(phase): 0.9940 valid in:  0m16s valid loss(phase): 0.9518 valid accu(phase): 0.8122 test in:  1m36s test loss(phase): 1.0798 test accu(phase): 0.7972 test in_MAE(phase): 1.4018 test pMAE(phase): 1.5741 test eMAE(phase): 2.0535
+val_precision_each_phase: [0.77345538 0.92313641 0.75218914 0.74817442 0.69879518 0.77130435
+ 0.47833622]
+val_recall_each_phase: [0.51681957 0.83412521 0.72184874 0.88043211 0.82594937 0.71359614
+ 0.75824176]
+val_precision_phase 0.7350558709517904
+val_recall_phase 0.7501446998002513
+val_jaccard_phase 0.5863247954005103
+best_epoch 15
+-----epoch: 26-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 950.4269
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   26 train in: 15m50s train loss(phase): 0.0187 train accu(phase): 0.9937 valid in:  0m15s valid loss(phase): 0.9424 valid accu(phase): 0.8151 test in:  1m42s test loss(phase): 1.0844 test accu(phase): 0.7975 test in_MAE(phase): 1.3928 test pMAE(phase): 1.5778 test eMAE(phase): 2.0188
+val_precision_each_phase: [0.78538813 0.92142748 0.75329236 0.74684069 0.71195652 0.78793419
+ 0.49544627]
+val_recall_each_phase: [0.52599388 0.84069312 0.7210084  0.88509698 0.82911392 0.69348351
+ 0.74725275]
+val_precision_phase 0.7431836612756916
+val_recall_phase 0.7489489386947364
+val_jaccard_phase 0.591150634485997
+best_epoch 15
+-----epoch: 27-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 998.4557
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   27 train in: 16m38s train loss(phase): 0.0179 train accu(phase): 0.9938 valid in:  0m17s valid loss(phase): 0.8925 valid accu(phase): 0.8182 test in:  1m42s test loss(phase): 1.0670 test accu(phase): 0.7991 test in_MAE(phase): 1.3907 test pMAE(phase): 1.5797 test eMAE(phase): 2.0103
+val_precision_each_phase: [0.79411765 0.91353047 0.74099485 0.76770969 0.7077748  0.78723404
+ 0.48586572]
+val_recall_each_phase: [0.49541284 0.85480715 0.72605042 0.86741959 0.83544304 0.71440064
+ 0.75549451]
+val_precision_phase 0.7424610320731403
+val_recall_phase 0.7498611712216067
+val_jaccard_phase 0.5908329407809332
+best_epoch 15
+-----epoch: 28-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 1002.1562
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   28 train in: 16m42s train loss(phase): 0.0175 train accu(phase): 0.9941 valid in:  0m17s valid loss(phase): 0.8836 valid accu(phase): 0.8213 test in:  1m42s test loss(phase): 1.0661 test accu(phase): 0.8004 test in_MAE(phase): 1.4040 test pMAE(phase): 1.5851 test eMAE(phase): 2.0438
+val_precision_each_phase: [0.78899083 0.90730707 0.75917637 0.77696729 0.69692924 0.79385172
+ 0.49364791]
+val_recall_each_phase: [0.52599388 0.86584684 0.71260504 0.86300025 0.82594937 0.70635559
+ 0.74725275]
+val_precision_phase 0.7452672027273336
+val_recall_phase 0.7495719598274135
+val_jaccard_phase 0.5938652841422456
+best_epoch 28
+-----epoch: 29-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 997.6480
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   29 train in: 16m38s train loss(phase): 0.0177 train accu(phase): 0.9939 valid in:  0m17s valid loss(phase): 0.8838 valid accu(phase): 0.8211 test in:  1m42s test loss(phase): 1.0630 test accu(phase): 0.8003 test in_MAE(phase): 1.3928 test pMAE(phase): 1.5755 test eMAE(phase): 2.0423
+val_precision_each_phase: [0.78021978 0.91268314 0.76220615 0.77251808 0.70189702 0.77982456
+ 0.49728752]
+val_recall_each_phase: [0.54281346 0.8617943  0.70840336 0.86545544 0.81962025 0.71520515
+ 0.75549451]
+val_precision_phase 0.7438051792995399
+val_recall_phase 0.7526837801767484
+val_jaccard_phase 0.5954599950078031
+best_epoch 28
+-----epoch: 30-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 997.5285
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   30 train in: 16m38s train loss(phase): 0.0173 train accu(phase): 0.9939 valid in:  0m17s valid loss(phase): 0.9223 valid accu(phase): 0.8168 test in:  1m42s test loss(phase): 1.0694 test accu(phase): 0.7995 test in_MAE(phase): 1.3925 test pMAE(phase): 1.5775 test eMAE(phase): 2.0227
+val_precision_each_phase: [0.77204301 0.91591184 0.75198588 0.75497249 0.70884354 0.79742173
+ 0.50460405]
+val_recall_each_phase: [0.54892966 0.84782001 0.71596639 0.87601277 0.82436709 0.69670153
+ 0.75274725]
+val_precision_phase 0.7436832196284061
+val_recall_phase 0.7517920997513724
+val_jaccard_phase 0.5944115553123959
+best_epoch 28
+-----epoch: 31-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 1042.7640
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   31 train in: 17m23s train loss(phase): 0.0166 train accu(phase): 0.9945 valid in:  0m17s valid loss(phase): 0.9131 valid accu(phase): 0.8173 test in:  1m42s test loss(phase): 1.0824 test accu(phase): 0.7993 test in_MAE(phase): 1.3970 test pMAE(phase): 1.5791 test eMAE(phase): 2.0392
+val_precision_each_phase: [0.77752809 0.91483599 0.74673629 0.76244635 0.70821918 0.78980322
+ 0.4929078 ]
+val_recall_each_phase: [0.52905199 0.84963667 0.7210084  0.87232998 0.81803797 0.71037812
+ 0.76373626]
+val_precision_phase 0.7417824179082083
+val_recall_phase 0.7520256276342386
+val_jaccard_phase 0.5927224779152452
+best_epoch 28
+-----epoch: 32-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 976.1318
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   32 train in: 16m16s train loss(phase): 0.0173 train accu(phase): 0.9941 valid in:  0m17s valid loss(phase): 0.9151 valid accu(phase): 0.8181 test in:  1m42s test loss(phase): 1.0776 test accu(phase): 0.7988 test in_MAE(phase): 1.4004 test pMAE(phase): 1.5780 test eMAE(phase): 2.0468
+val_precision_each_phase: [0.78222222 0.91682989 0.74912281 0.76223176 0.71117166 0.77826468
+ 0.49818182]
+val_recall_each_phase: [0.5382263  0.85033538 0.71764706 0.87208446 0.82594937 0.71440064
+ 0.75274725]
+val_precision_phase 0.7425749774761007
+val_recall_phase 0.7530557804976054
+val_jaccard_phase 0.5945555242335469
+best_epoch 28
+-----epoch: 33-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 961.3246
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   33 train in: 16m 1s train loss(phase): 0.0168 train accu(phase): 0.9945 valid in:  0m16s valid loss(phase): 0.9008 valid accu(phase): 0.8184 test in:  1m39s test loss(phase): 1.0726 test accu(phase): 0.7995 test in_MAE(phase): 1.3965 test pMAE(phase): 1.5808 test eMAE(phase): 2.0430
+val_precision_each_phase: [0.77605322 0.91322499 0.75132743 0.76400862 0.70340136 0.79238441
+ 0.4981685 ]
+val_recall_each_phase: [0.5351682  0.8559251  0.71344538 0.87036582 0.81803797 0.70313757
+ 0.74725275]
+val_precision_phase 0.7426526461558504
+val_recall_phase 0.7490475411053695
+val_jaccard_phase 0.5923646218803739
+best_epoch 28
+-----epoch: 34-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 942.9979
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   34 train in: 15m43s train loss(phase): 0.0168 train accu(phase): 0.9943 valid in:  0m16s valid loss(phase): 0.8955 valid accu(phase): 0.8201 test in:  1m40s test loss(phase): 1.0859 test accu(phase): 0.7986 test in_MAE(phase): 1.3953 test pMAE(phase): 1.5834 test eMAE(phase): 2.0345
+val_precision_each_phase: [0.78538813 0.9098966  0.73733108 0.77050974 0.70500677 0.80974695
+ 0.50276243]
+val_recall_each_phase: [0.52599388 0.8608161  0.73361345 0.86471888 0.82436709 0.69509252
+ 0.75      ]
+val_precision_phase 0.7458059568281966
+val_recall_phase 0.7506574163843228
+val_jaccard_phase 0.5947684830591863
+best_epoch 28
+-----epoch: 35-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 960.3965
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   35 train in: 16m 0s train loss(phase): 0.0165 train accu(phase): 0.9942 valid in:  0m17s valid loss(phase): 0.8943 valid accu(phase): 0.8196 test in:  1m42s test loss(phase): 1.0818 test accu(phase): 0.7993 test in_MAE(phase): 1.3924 test pMAE(phase): 1.5781 test eMAE(phase): 2.0265
+val_precision_each_phase: [0.77631579 0.91306293 0.72464963 0.77067834 0.70725034 0.80145719
+ 0.50929368]
+val_recall_each_phase: [0.5412844  0.85564561 0.73865546 0.86471888 0.81803797 0.7079646
+ 0.75274725]
+val_precision_phase 0.7432439859125685
+val_recall_phase 0.7541505982230293
+val_jaccard_phase 0.5962447754405245
+best_epoch 28
+-----epoch: 36-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 965.8023
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   36 train in: 16m 6s train loss(phase): 0.0163 train accu(phase): 0.9946 valid in:  0m17s valid loss(phase): 0.8897 valid accu(phase): 0.8209 test in:  1m42s test loss(phase): 1.0728 test accu(phase): 0.7999 test in_MAE(phase): 1.3947 test pMAE(phase): 1.5818 test eMAE(phase): 2.0329
+val_precision_each_phase: [0.78366446 0.91037945 0.74825784 0.77050611 0.70175439 0.79834254
+ 0.51233397]
+val_recall_each_phase: [0.54281346 0.86165456 0.72184874 0.86717407 0.82278481 0.69750603
+ 0.74175824]
+val_precision_phase 0.7464626783054422
+val_recall_phase 0.7507914156585346
+val_jaccard_phase 0.5962489417779224
+best_epoch 28
+-----epoch: 37-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 961.4064
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   37 train in: 16m 1s train loss(phase): 0.0165 train accu(phase): 0.9944 valid in:  0m17s valid loss(phase): 0.9007 valid accu(phase): 0.8181 test in:  1m45s test loss(phase): 1.0846 test accu(phase): 0.7987 test in_MAE(phase): 1.4033 test pMAE(phase): 1.5795 test eMAE(phase): 2.0473
+val_precision_each_phase: [0.77753304 0.91389638 0.73639456 0.7670368  0.7027027  0.79196429
+ 0.49909256]
+val_recall_each_phase: [0.53975535 0.85285075 0.72773109 0.8649644  0.82278481 0.71359614
+ 0.75549451]
+val_precision_phase 0.7412314737364144
+val_recall_phase 0.7538824360616873
+val_jaccard_phase 0.5943250887519973
+best_epoch 28
+-----epoch: 38-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 997.3025
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   38 train in: 16m37s train loss(phase): 0.0161 train accu(phase): 0.9948 valid in:  0m17s valid loss(phase): 0.8668 valid accu(phase): 0.8230 test in:  1m42s test loss(phase): 1.0799 test accu(phase): 0.7997 test in_MAE(phase): 1.3990 test pMAE(phase): 1.5815 test eMAE(phase): 2.0348
+val_precision_each_phase: [0.78747204 0.90961031 0.74102564 0.78449438 0.70919067 0.77422145
+ 0.50749064]
+val_recall_each_phase: [0.5382263  0.8676635  0.72857143 0.85710778 0.81803797 0.72003218
+ 0.74450549]
+val_precision_phase 0.7447864477849182
+val_recall_phase 0.7534492371123334
+val_jaccard_phase 0.5975823547795628
+best_epoch 38
+-----epoch: 39-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 994.4612
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   39 train in: 16m34s train loss(phase): 0.0163 train accu(phase): 0.9945 valid in:  0m17s valid loss(phase): 0.8510 valid accu(phase): 0.8257 test in:  1m42s test loss(phase): 1.0684 test accu(phase): 0.8002 test in_MAE(phase): 1.4076 test pMAE(phase): 1.5833 test eMAE(phase): 2.0661
+val_precision_each_phase: [0.77729258 0.90533911 0.74956522 0.79108888 0.70588235 0.7935368
+ 0.51132075]
+val_recall_each_phase: [0.54434251 0.87674679 0.72436975 0.85440707 0.8164557  0.71118262
+ 0.74450549]
+val_precision_phase 0.7477179564219734
+val_recall_phase 0.7531442751154973
+val_jaccard_phase 0.599813649748054
+best_epoch 39
+-----epoch: 40-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 1001.7580
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   40 train in: 16m42s train loss(phase): 0.0165 train accu(phase): 0.9944 valid in:  0m17s valid loss(phase): 0.9012 valid accu(phase): 0.8184 test in:  1m42s test loss(phase): 1.0755 test accu(phase): 0.7997 test in_MAE(phase): 1.3972 test pMAE(phase): 1.5815 test eMAE(phase): 2.0325
+val_precision_each_phase: [0.78444444 0.91210589 0.74199134 0.76928119 0.70040486 0.78771454
+ 0.49462366]
+val_recall_each_phase: [0.53975535 0.85704304 0.72016807 0.86447336 0.82120253 0.70152856
+ 0.75824176]
+val_precision_phase 0.7415094174806419
+val_recall_phase 0.7517732386707979
+val_jaccard_phase 0.592727153848769
+best_epoch 39
+-----epoch: 41-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 996.2535
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   41 train in: 16m36s train loss(phase): 0.0164 train accu(phase): 0.9945 valid in:  0m17s valid loss(phase): 0.9112 valid accu(phase): 0.8175 test in:  1m42s test loss(phase): 1.0882 test accu(phase): 0.7988 test in_MAE(phase): 1.3969 test pMAE(phase): 1.5776 test eMAE(phase): 2.0493
+val_precision_each_phase: [0.79156909 0.91464146 0.73491929 0.76422414 0.70765027 0.79260595
+ 0.49019608]
+val_recall_each_phase: [0.51681957 0.8520123  0.72689076 0.87061134 0.81962025 0.7071601
+ 0.75549451]
+val_precision_phase 0.7422580397160798
+val_recall_phase 0.7498012605329877
+val_jaccard_phase 0.5912080997082809
+best_epoch 39
+-----epoch: 42-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 987.5105
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   42 train in: 16m28s train loss(phase): 0.0164 train accu(phase): 0.9945 valid in:  0m17s valid loss(phase): 0.8811 valid accu(phase): 0.8201 test in:  1m42s test loss(phase): 1.0703 test accu(phase): 0.8003 test in_MAE(phase): 1.3961 test pMAE(phase): 1.5756 test eMAE(phase): 2.0483
+val_precision_each_phase: [0.78524946 0.9120439  0.74759825 0.77458564 0.70395634 0.77923211
+ 0.49464286]
+val_recall_each_phase: [0.55351682 0.85927893 0.71932773 0.86054505 0.8164557  0.71842317
+ 0.76098901]
+val_precision_phase 0.7424726518356141
+val_recall_phase 0.7555052010239753
+val_jaccard_phase 0.5962947400300299
+best_epoch 39
+-----epoch: 43-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 985.7029
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   43 train in: 16m26s train loss(phase): 0.0166 train accu(phase): 0.9942 valid in:  0m17s valid loss(phase): 0.9182 valid accu(phase): 0.8187 test in:  1m43s test loss(phase): 1.0920 test accu(phase): 0.7997 test in_MAE(phase): 1.4084 test pMAE(phase): 1.5854 test eMAE(phase): 2.0625
+val_precision_each_phase: [0.79294118 0.9122807  0.76642336 0.76445211 0.7047619  0.78375993
+ 0.48663102]
+val_recall_each_phase: [0.51529052 0.85746227 0.70588235 0.8701203  0.81962025 0.71440064
+ 0.75      ]
+val_precision_phase 0.7444643142823109
+val_recall_phase 0.7475394776365359
+val_jaccard_phase 0.591287683873336
+best_epoch 39
+-----epoch: 44-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 978.4242
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   44 train in: 16m18s train loss(phase): 0.0165 train accu(phase): 0.9944 valid in:  0m17s valid loss(phase): 0.9228 valid accu(phase): 0.8171 test in:  1m42s test loss(phase): 1.0962 test accu(phase): 0.7981 test in_MAE(phase): 1.4066 test pMAE(phase): 1.5832 test eMAE(phase): 2.0560
+val_precision_each_phase: [0.7904328  0.91450038 0.76186131 0.75771769 0.70175439 0.78375993
+ 0.50090744]
+val_recall_each_phase: [0.53058104 0.85047513 0.70168067 0.87380309 0.82278481 0.71440064
+ 0.75824176]
+val_precision_phase 0.7444191342663574
+val_recall_phase 0.7502810204726017
+val_jaccard_phase 0.59281926944555
+best_epoch 39
+-----epoch: 45-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 985.6563
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   45 train in: 16m26s train loss(phase): 0.0161 train accu(phase): 0.9944 valid in:  0m18s valid loss(phase): 0.9236 valid accu(phase): 0.8175 test in:  1m48s test loss(phase): 1.0925 test accu(phase): 0.7979 test in_MAE(phase): 1.3965 test pMAE(phase): 1.5784 test eMAE(phase): 2.0373
+val_precision_each_phase: [0.7833698  0.91608814 0.74352332 0.75878969 0.70861833 0.79276018
+ 0.50369004]
+val_recall_each_phase: [0.54740061 0.84823924 0.72352941 0.87429413 0.81962025 0.70474658
+ 0.75      ]
+val_precision_phase 0.7438342132117082
+val_recall_phase 0.7525471756129961
+val_jaccard_phase 0.5950129643432172
+best_epoch 39
+-----epoch: 46-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 985.2671
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   46 train in: 16m25s train loss(phase): 0.0160 train accu(phase): 0.9947 valid in:  0m16s valid loss(phase): 0.9270 valid accu(phase): 0.8165 test in:  1m43s test loss(phase): 1.0871 test accu(phase): 0.7990 test in_MAE(phase): 1.3953 test pMAE(phase): 1.5807 test eMAE(phase): 2.0290
+val_precision_each_phase: [0.79090909 0.91441917 0.74523397 0.75822298 0.69959947 0.78890877
+ 0.5075188 ]
+val_recall_each_phase: [0.53211009 0.8480995  0.72268908 0.87159342 0.82911392 0.70957361
+ 0.74175824]
+val_precision_phase 0.7435446050329416
+val_recall_phase 0.7507054089171227
+val_jaccard_phase 0.5932665817857966
+best_epoch 39
+-----epoch: 47-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 968.8120
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   47 train in: 16m 9s train loss(phase): 0.0163 train accu(phase): 0.9946 valid in:  0m17s valid loss(phase): 0.9207 valid accu(phase): 0.8160 test in:  1m40s test loss(phase): 1.0848 test accu(phase): 0.7980 test in_MAE(phase): 1.3951 test pMAE(phase): 1.5750 test eMAE(phase): 2.0361
+val_precision_each_phase: [0.78396437 0.91707022 0.73372781 0.76112664 0.6967655  0.78801431
+ 0.49197861]
+val_recall_each_phase: [0.5382263  0.84684181 0.72941176 0.86913823 0.81803797 0.70876911
+ 0.75824176]
+val_precision_phase 0.7389496361150218
+val_recall_phase 0.7526667061061503
+val_jaccard_phase 0.5912477762404683
+best_epoch 39
+-----epoch: 48-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 990.9069
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   48 train in: 16m31s train loss(phase): 0.0163 train accu(phase): 0.9944 valid in:  0m17s valid loss(phase): 0.9737 valid accu(phase): 0.8125 test in:  1m42s test loss(phase): 1.1076 test accu(phase): 0.7965 test in_MAE(phase): 1.3992 test pMAE(phase): 1.5775 test eMAE(phase): 2.0532
+val_precision_each_phase: [0.78538813 0.92091876 0.75909091 0.74106042 0.70187166 0.78890877
+ 0.4954955 ]
+val_recall_each_phase: [0.52599388 0.83482392 0.70168067 0.8853425  0.8306962  0.70957361
+ 0.75549451]
+val_precision_phase 0.7418191622401256
+val_recall_phase 0.7490864713830951
+val_jaccard_phase 0.5894751980107842
+best_epoch 39
+-----epoch: 49-----
+Batch progress: 12.39% [8800/71032]
+Batch progress: 24.78% [17600/71032]
+Batch progress: 37.17% [26400/71032]
+Batch progress: 49.56% [35200/71032]
+Batch progress: 61.94% [44000/71032]
+Batch progress: 74.33% [52800/71032]
+Batch progress: 86.72% [61600/71032]
+Batch progress: 99.11% [70400/71032]
+Batch progress: 100.0% [71032/71032]
+train_elapsed_time: 978.4095
+Val progress: 28.74% [4400/15312]
+Val progress: 57.47% [8800/15312]
+Val progress: 86.21% [13200/15312]
+Val progress: 100.0% [15312/15312]
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/my_srtp_env/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+test progress: 8.96% [8800/98234]
+test progress: 17.92% [17600/98234]
+test progress: 26.87% [26400/98234]
+test progress: 35.83% [35200/98234]
+test progress: 44.79% [44000/98234]
+test progress: 53.75% [52800/98234]
+test progress: 62.71% [61600/98234]
+test progress: 71.67% [70400/98234]
+test progress: 80.62% [79200/98234]
+test progress: 89.58% [88000/98234]
+test progress: 98.54% [96800/98234]
+test progress: 100.0% [98234/98234]
+epoch:   49 train in: 16m18s train loss(phase): 0.0158 train accu(phase): 0.9949 valid in:  0m17s valid loss(phase): 0.9107 valid accu(phase): 0.8186 test in:  1m42s test loss(phase): 1.0912 test accu(phase): 0.7982 test in_MAE(phase): 1.4021 test pMAE(phase): 1.5791 test eMAE(phase): 2.0491
+val_precision_each_phase: [0.78828829 0.91501799 0.74912892 0.76348727 0.70540541 0.78961504
+ 0.497307  ]
+val_recall_each_phase: [0.5351682  0.85313024 0.72268908 0.86864719 0.82594937 0.70957361
+ 0.76098901]
+val_precision_phase 0.7440357013238051
+val_recall_phase 0.7537352415452954
+val_jaccard_phase 0.5951052953074322
+best_epoch 39
