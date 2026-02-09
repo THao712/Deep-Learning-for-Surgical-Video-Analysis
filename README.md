@@ -259,6 +259,64 @@ kill <PID>
 - **依赖**：需要前两个阶段训练好的模型
 - **输出**：最终的预测结果文件
 
+### 4. `get_path_labels.py` 
+- **角色**：生成这类文件：train_val_paths_labels_40_40.pkl
+- **关键点**：如果要获得train_val_paths_labels_32_8_40.pkl，则要修改代码中的划分方式，下面是40_40.pkl的生成代码，即40个训练集，8个验证集，40个测试集，这里验证集虽然和测试集有重合，但是跑代码的时候忽略掉了，所以不用管
+ ```python
+  for i in range(40):
+        train_num_each_80.append(len(all_info_80[i]))
+        for j in range(len(all_info_80[i])):
+            train_file_paths_80.append(all_info_80[i][j][0])
+            train_labels_80.append(all_info_80[i][j][1:])
+            stat[all_info_80[i][j][1]] += 1  # 统计每个phase的数量
+
+    print(len(train_file_paths_80))
+    print(len(train_labels_80))
+    print(stat)
+
+    # 验证集: 40-47
+    for i in range(40, 48):
+        val_num_each_80.append(len(all_info_80[i]))
+        for j in range(len(all_info_80[i])):
+            val_file_paths_80.append(all_info_80[i][j][0])
+            val_labels_80.append(all_info_80[i][j][1:])
+
+    # 测试集: 40-79
+    for i in range(40, 80):
+        test_num_each_80.append(len(all_info_80[i]))
+        for j in range(len(all_info_80[i])):
+            test_file_paths_80.append(all_info_80[i][j][0])
+            test_labels_80.append(all_info_80[i][j][1:])
+
+```
+
+### 5. `get_segmap_path.py` 
+- **角色**：生成这类文件：bimasks_ss_pos_train_val_test_40_40.pkl
+- **关键点**：如果要获得bimasks_ss_pos_train_val_test_32_8_40.pkl，则要修改代码中的划分方式，下面是40_40.pkl的生成代码，即40个训练集，8个验证集，40个测试集，这里验证集虽然和测试集有重合，但是跑代码的时候忽略掉了，所以不用管
+ ```python
+ for i in range(40):
+    train_num_each_80.append(len(all_info_80[i]))
+    for j in range(len(all_info_80[i])):
+        train_segmap_paths_80.append(all_info_80[i][j][0])
+    print(f"video: {i}, train_num_each_80: {train_num_each_80}")
+
+for i in range(40, 48):
+    val_num_each_80.append(len(all_info_80[i]))
+    for j in range(len(all_info_80[i])):
+        val_segmap_paths_80.append(all_info_80[i][j][0])
+    print(f"video: {i}, val_num_each_80: {val_num_each_80}")
+
+for i in range(40, 80):
+    test_num_each_80.append(len(all_info_80[i]))
+    for j in range(len(all_info_80[i])):
+        test_segmap_paths_80.append(all_info_80[i][j][0])
+    print(f"video: {i}, test_num_each_80: {test_num_each_80}")
+```
+
+### 6. `visualizer.py` 
+- **角色**：from .visualizer import get_local,这种头文件引用如果报错的话，就把visualizer.py放到与代码相同的目录下，比如trans_SV_output.py里面有from .visualizer import get_local这个引用，但是.visualizer下面有红色波浪线，而trans_SV_output.py在code_80目录下，那就把visualizer.py也放到code_80下面
+
+
 ## 📝 代码示例
 
 ### 模型加载示例(trans_SV_output.py)，tecno.py和tecno_trans.py都是类似的
