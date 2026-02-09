@@ -1,4 +1,4 @@
-训练前，切换到我们要用的环境，pycharm连接好服务器后在电脑pycharm软件里的服务器终端执行：conda activate my_srtp_env
+训练前，切换到我们要用的环境，pycharm连接好服务器后(用自己电脑的资源的话，就不用连服务器了，pycharm-终端-本地，激活你自己的conda环境)在电脑pycharm软件里的服务器终端执行：conda activate my_srtp_env
 
 第一阶段训练
 cd /root/autodl-tmp/data/code_80
@@ -93,5 +93,6 @@ data/cholec80/phase_anticipation_annotations文件夹里的文件在pycharm里�
 
 data/cholec80/anticipation_output里的内容为图片，内容含义为:
 一张包含 7 个子图的大图，每个子图对应一个手术阶段。X轴: 帧数（时间）。Y轴: 距离下一阶段发生的时间（分钟）。红色曲线: Ground Truth 信号，为锯齿状的波形，随着时间推移，曲线线性下降直到变为 0（表示阶段开始）。
+
 
 code_80/bimask_ss_pos是训练过程中存储训练结果的文件夹，stage1为第一阶段，stage2为第二阶段，stage2中的embedding1为finetune.py微调得到的SegFormer各神经元之间的连接权重（也叫神经元的参数），LFB1是用训练好的SegFormer提取的空间特征，TeCNO1-2表示训练得到的MS-TCN模型神经元之间的权重，TeCNOt1-2表示训练好的TransFormer模型权重，output文件夹表示用训练好的MS-TCN和TransFormer模型去跑一遍验证集和测试集得到结果
