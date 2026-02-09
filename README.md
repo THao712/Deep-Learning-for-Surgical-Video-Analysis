@@ -63,7 +63,7 @@ nvidia-smi
 ```
 查看PID，执行kill PID(数字)
 
-#### 第二阶段微调（所有的命令基本都是在code_80目录下执行，即执行cd /root/autodl-tmp/data/code_80）
+#### 第二阶段微调（所有的命令基本都是在code_80目录下执行，即执行cd /root/autodl-tmp/data/code_80切换到code_80目录）
 ```bash
 nohup python finetune_evp.py > finetune_log.txt 2>&1 &
 ```
