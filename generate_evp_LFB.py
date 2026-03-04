@@ -19,8 +19,8 @@ import copy
 import random
 import numbers
 from models.mix_transformer_evp import mit_b2_evp, mit_b5_evp, mit_b3_evp, mit_b4_evp, mit_b1_evp
-from models.data_process import CholecSegmapDataset,M2caiSegmapDataset, RandomCrop, RandomHorizontalFlip, RandomRotation, ColorJitter, CholecDataset,\
-                                SeqSampler, get_useful_start_idx, get_useful_start_idx_LFB
+# [修改] 引入 CholecFlowDataset
+from models.data_process import CholecSegmapDataset, M2caiSegmapDataset, RandomCrop, RandomHorizontalFlip, RandomRotation, ColorJitter, CholecDataset, SeqSampler, get_useful_start_idx, get_useful_start_idx_LFB, CholecFlowDataset
 from torch.utils.tensorboard import SummaryWriter
 from sklearn import metrics
 #from NLBlock import NLBlockimport os, subprocess
@@ -28,7 +28,7 @@ import os, subprocess
 #os.environ['CUDA_VISIBLE_DEVICES'] = str(np.argmax([int(x.split()[2]) for x in subprocess.Popen(
 #    "nvidia-smi -q -d Memory | grep -A4 GPU | grep Free", shell=True, stdout=subprocess.PIPE).stdout.readlines()]))
 os.environ['CUDA_VISIBLE_DEVICES'] = "0"
-
+#同步
 parser = argparse.ArgumentParser(description='lstm training')
 parser.add_argument('-g', '--gpu', default=True, type=bool, help='gpu use, default True')
 parser.add_argument('-s', '--seq', default=1, type=int, help='sequence length, default 10')
@@ -37,7 +37,7 @@ parser.add_argument('-v', '--val', default=200, type=int, help='valid batch size
 parser.add_argument('-o', '--opt', default=0, type=int, help='0 for sgd 1 for adam, default 1')
 parser.add_argument('-m', '--multi', default=1, type=int, help='0 for single opt, 1 for multi opt, default 1')
 parser.add_argument('-e', '--epo', default=25, type=int, help='epochs to train and val, default 25')
-parser.add_argument('-w', '--work', default=8, type=int, help='num of workers to use, default 4')
+parser.add_argument('-w', '--work', default=8, type=int, help='num of workers to use, default 4')#work改回8
 parser.add_argument('-f', '--flip', default=1, type=int, help='0 for not flip, 1 for flip, default 0')
 parser.add_argument('-c', '--crop', default=1, type=int, help='0 rand, 1 cent, 5 five_crop, 10 ten_crop, default 1')
 parser.add_argument('-l', '--lr', default=5e-7, type=float, help='learning rate for optimizer, default 5e-5')
@@ -273,10 +273,13 @@ def get_all_data(data_path, seg_path):
                      for crop in crops]))
         ])
 
-    train_dataset_80 = CholecSegmapDataset(train_paths_80, train_paths_80_seg, train_labels_80, train_transforms)
-    train_dataset_80_LFB = CholecSegmapDataset(train_paths_80, train_paths_80_seg, train_labels_80, test_transforms)
-    val_dataset_80 = CholecSegmapDataset(val_paths_80, val_paths_80_seg, val_labels_80, test_transforms)
-    test_dataset_80 = CholecSegmapDataset(test_paths_80, test_paths_80_seg, test_labels_80, test_transforms)
+    # [修改] 使用 CholecFlowDataset 替换 CholecSegmapDataset
+    # train_dataset_80 不用于生成特征(LFB)，只用于训练(这里似乎只用了train_dataset_80_LFB)
+    # 但为了保持一致性全部替换
+    train_dataset_80 = CholecFlowDataset(train_paths_80, train_paths_80_seg, train_labels_80, train_transforms)
+    train_dataset_80_LFB = CholecFlowDataset(train_paths_80, train_paths_80_seg, train_labels_80, test_transforms)
+    val_dataset_80 = CholecFlowDataset(val_paths_80, val_paths_80_seg, val_labels_80, test_transforms)
+    test_dataset_80 = CholecFlowDataset(test_paths_80, test_paths_80_seg, test_labels_80, test_transforms)
     # train_dataset_80 = M2caiSegmapDataset(train_paths_80, train_paths_80_seg, train_labels_80, train_transforms)
     # train_dataset_80_LFB = M2caiSegmapDataset(train_paths_80, train_paths_80_seg, train_labels_80, test_transforms)
     # val_dataset_80 = M2caiSegmapDataset(val_paths_80, val_paths_80_seg, val_labels_80, test_transforms)
@@ -437,13 +440,18 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
 
             for data in train_feature_loader:
                 if use_gpu:
-                    inputs, segmaps, labels_phase = data[0].to(device), data[1].to(device), data[2].to(device)  # inputs: Tensor: (100, 3, 224, 224); labels_phase: Tensor: (100, ); labels_phase_ant: Tensor:(100，7)
+                    # [修改] 解包5个返回值: inputs, segmaps, flow, labels_phase, labels_ant
+                    inputs, segmaps, flow, labels_phase = data[0].to(device), data[1].to(device), data[2].to(device), data[3].to(device)
                 else:
-                    inputs, segmaps, labels_phase = data[0], data[1], data[2]
+                    inputs, segmaps, flow, labels_phase = data[0], data[1], data[2], data[3]
 
                 inputs = inputs.view(-1, sequence_length, 3, 224, 224)  # inputs: Tensor(400, 1, 3, 224, 224)
                 segmaps = segmaps.view(-1, sequence_length, 3, 224, 224)
-                outputs_feature = model_LFB.forward(inputs, segmaps).data.cpu().numpy()
+                # [新增] 处理 flow shape -> (B, T, 2, 224, 224)
+                flow = flow.view(-1, sequence_length, 2, 224, 224)
+
+                # [修改] 传递 flow 到 forward
+                outputs_feature = model_LFB.forward(inputs, segmaps, flow).data.cpu().numpy()
                 # outputs_feature = model_LFB.forward(inputs).data.cpu().numpy()  # output feature = lt， ndarray=(batchsize,2048)
 
                 g_LFB_train = np.concatenate((g_LFB_train, outputs_feature), axis=0)
@@ -453,13 +461,18 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
 
             for data in val_feature_loader:
                 if use_gpu:
-                    inputs, segmaps, labels_phase = data[0].to(device), data[1].to(device), data[2].to(device)  # inputs: Tensor: (100, 3, 224, 224); labels_phase: Tensor: (100, ); labels_phase_ant: Tensor:(100，7)
+                    # [修改]
+                    inputs, segmaps, flow, labels_phase = data[0].to(device), data[1].to(device), data[2].to(device), data[3].to(device)
                 else:
-                    inputs, segmaps, labels_phase = data[0], data[1], data[2]
+                    inputs, segmaps, flow, labels_phase = data[0], data[1], data[2], data[3]
 
                 inputs = inputs.view(-1, sequence_length, 3, 224, 224)  # inputs: Tensor(400, 1, 3, 224, 224)
                 segmaps = segmaps.view(-1, sequence_length, 3, 224, 224)
-                outputs_feature = model_LFB.forward(inputs, segmaps).data.cpu().numpy()
+                # [新增]
+                flow = flow.view(-1, sequence_length, 2, 224, 224)
+
+                # [修改]
+                outputs_feature = model_LFB.forward(inputs, segmaps, flow).data.cpu().numpy()
 
                 g_LFB_val = np.concatenate((g_LFB_val, outputs_feature), axis=0)
 
@@ -468,13 +481,18 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
 
             for data in test_feature_loader:
                 if use_gpu:
-                    inputs, segmaps, labels_phase = data[0].to(device), data[1].to(device), data[2].to(device)  # inputs: Tensor: (100, 3, 224, 224); labels_phase: Tensor: (100, ); labels_phase_ant: Tensor:(100，7)
+                    # [修改]
+                    inputs, segmaps, flow, labels_phase = data[0].to(device), data[1].to(device), data[2].to(device), data[3].to(device)
                 else:
-                    inputs, segmaps, labels_phase = data[0], data[1], data[2]
+                    inputs, segmaps, flow, labels_phase = data[0], data[1], data[2], data[3]
 
                 inputs = inputs.view(-1, sequence_length, 3, 224, 224)  # inputs: Tensor(400, 1, 3, 224, 224)
                 segmaps = segmaps.view(-1, sequence_length, 3, 224, 224)
-                outputs_feature = model_LFB.forward(inputs, segmaps).data.cpu().numpy()
+                # [新增]
+                flow = flow.view(-1, sequence_length, 2, 224, 224)
+
+                # [修改]
+                outputs_feature = model_LFB.forward(inputs, segmaps, flow).data.cpu().numpy()
 
                 g_LFB_test = np.concatenate((g_LFB_test, outputs_feature), axis=0)
 
