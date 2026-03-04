@@ -17,8 +17,8 @@ from torch.utils.tensorboard import SummaryWriter
 from sklearn import metrics
 from models.mix_transformer_evp import mit_b3_evp, mit_b4_evp, mit_b2_evp,mit_b5_evp,mit_b0_evp
 from models.data_process import CholecSegmapDataset, M2caiSegmapDataset,RandomCrop, RandomHorizontalFlip, \
-    RandomRotation, ColorJitter, SeqSampler, get_useful_start_idx
-import sys#同步
+    RandomRotation, ColorJitter, SeqSampler, get_useful_start_idx, CholecFlowDataset
+import sys
 
 np.set_printoptions(threshold=sys.maxsize)
 
@@ -203,9 +203,14 @@ def get_all_data(data_path, seg_path):
                      for crop in crops]))
         ])
 
-    train_dataset_80 = CholecSegmapDataset(train_paths_80, train_paths_80_seg, train_labels_80, train_transforms)
-    val_dataset_80 = CholecSegmapDataset(val_paths_80, val_paths_80_seg, val_labels_80, test_transforms)
-    test_dataset_80 = CholecSegmapDataset(test_paths_80, test_paths_80_seg, test_labels_80, test_transforms)
+    # [修改] 使用 CholecFlowDataset 替换 CholecSegmapDataset
+    train_dataset_80 = CholecFlowDataset(train_paths_80, train_paths_80_seg, train_labels_80, train_transforms)
+    val_dataset_80 = CholecFlowDataset(val_paths_80, val_paths_80_seg, val_labels_80, test_transforms)
+    test_dataset_80 = CholecFlowDataset(test_paths_80, test_paths_80_seg, test_labels_80, test_transforms)
+
+    # train_dataset_80 = CholecSegmapDataset(train_paths_80, train_paths_80_seg, train_labels_80, train_transforms)
+    # val_dataset_80 = CholecSegmapDataset(val_paths_80, val_paths_80_seg, val_labels_80, test_transforms)
+    # test_dataset_80 = CholecSegmapDataset(test_paths_80, test_paths_80_seg, test_labels_80, test_transforms)
     # train_dataset_80 = M2caiSegmapDataset(train_paths_80, train_paths_80_seg, train_labels_80, train_transforms)
     # val_dataset_80 = M2caiSegmapDataset(val_paths_80, val_paths_80_seg, val_labels_80, test_transforms)
     # test_dataset_80 = M2caiSegmapDataset(test_paths_80, test_paths_80_seg, test_labels_80, test_transforms)
@@ -234,17 +239,22 @@ def valMinibatch(testloader, model):
         val_corrects_phase = 0.0
         for data in testloader:
             if use_gpu:
-                inputs, segmaps, labels_phase, labels_phase_ant = data[0].to(device), data[1].to(device), data[2].to(device), data[3].to(device)  # inputs: Tensor: (100, 3, 224, 224); labels_phase: Tensor: (100, ); labels_phase_ant: Tensor:(100，7)
+                # [修改] 解包5个变量: inputs, segmaps, flow, labels_phase, labels_phase_ant
+                inputs, segmaps, flow, labels_phase, labels_phase_ant = data[0].to(device), data[1].to(device), data[2].to(device), data[3].to(device), data[4].to(device)
             else:
-                inputs, segmaps, labels_phase, labels_phase_ant = data[0], data[1], data[2], data[3]
+                inputs, segmaps, flow, labels_phase, labels_phase_ant = data[0], data[1], data[2], data[3], data[4]
 
             labels_phase = labels_phase[(sequence_length - 1)::sequence_length]
             labels_phase_ant = labels_phase_ant[(sequence_length - 1)::sequence_length]
 
             inputs = inputs.view(-1, sequence_length, 3, 224, 224)
             segmaps = segmaps.view(-1, sequence_length, 3, 224, 224)
+            # [新增] reshape flow
+            flow = flow.view(-1, sequence_length, 2, 224, 224)
+
             with autocast(device_type='cuda', dtype=torch.float16):
-                outputs_phase, outputs_phase_ant = model.forward(inputs, segmaps)
+                # [修改] 传入 flow
+                outputs_phase, outputs_phase_ant = model.forward(inputs, segmaps, flow)
 
                 outputs_phase = outputs_phase[sequence_length - 1::sequence_length]
                 outputs_phase_ant = outputs_phase_ant[sequence_length - 1::sequence_length]
@@ -461,17 +471,22 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
             # print('data_time: {:.4f}'.format(data_time))
             optimizer.zero_grad()
             if use_gpu:
-                inputs, segmaps, labels_phase, labels_phase_ant = data[0].to(device), data[1].to(device), data[2].to(device), data[3].to(device)  # inputs: Tensor: (100, 3, 224, 224); labels_phase: Tensor: (100, ); labels_phase_ant: Tensor:(100，7)
+                # [修改] 解包5个变量
+                inputs, segmaps, flow, labels_phase, labels_phase_ant = data[0].to(device), data[1].to(device), data[2].to(device), data[3].to(device), data[4].to(device)
             else:
-                inputs, segmaps, labels_phase, labels_phase_ant = data[0], data[1], data[2], data[3]
+                inputs, segmaps, flow, labels_phase, labels_phase_ant = data[0], data[1], data[2], data[3], data[4]
 
             labels_phase = labels_phase[(sequence_length - 1)::sequence_length]
             labels_phase_ant = labels_phase_ant[(sequence_length - 1)::sequence_length]
 
             inputs = inputs.view(-1, sequence_length, 3, 224, 224)
             segmaps = segmaps.view(-1, sequence_length, 3, 224, 224)
+            # [新增] reshape flow
+            flow = flow.view(-1, sequence_length, 2, 224, 224)
+
             with autocast(device_type='cuda', dtype=torch.float16):
-                outputs_phase, outputs_phase_ant = model.forward(inputs, segmaps)  # outputs_phase: Tensor: (B, 7); outputs_phase_ant: Tensor: (B, 7)
+                # [修改] 传入 flow
+                outputs_phase, outputs_phase_ant = model.forward(inputs, segmaps, flow)  # outputs_phase: Tensor: (B, 7); outputs_phase_ant: Tensor: (B, 7)
 
                 outputs_phase = outputs_phase[sequence_length - 1::sequence_length]
                 outputs_phase_ant = outputs_phase_ant[sequence_length - 1::sequence_length]
@@ -600,17 +615,22 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
         with torch.no_grad():
             for data in val_loader:
                 if use_gpu:
-                    inputs, segmaps, labels_phase, labels_phase_ant = data[0].to(device), data[1].to(device), data[2].to(device), data[3].to(device)  # inputs: Tensor: (100, 3, 224, 224); labels_phase: Tensor: (100, ); labels_phase_ant: Tensor:(100，7)
+                    # [修改] 解包5个变量
+                    inputs, segmaps, flow, labels_phase, labels_phase_ant = data[0].to(device), data[1].to(device), data[2].to(device), data[3].to(device), data[4].to(device)
                 else:
-                    inputs, segmaps, labels_phase, labels_phase_ant = data[0], data[1], data[2], data[3]
+                    inputs, segmaps, flow, labels_phase, labels_phase_ant = data[0], data[1], data[2], data[3], data[4]
 
                 labels_phase = labels_phase[(sequence_length - 1)::sequence_length]
                 labels_phase_ant = labels_phase_ant[(sequence_length - 1)::sequence_length]
 
                 inputs = inputs.view(-1, sequence_length, 3, 224, 224)
                 segmaps = segmaps.view(-1, sequence_length, 3, 224, 224)
+                # [新增] reshape flow
+                flow = flow.view(-1, sequence_length, 2, 224, 224)
+
                 with autocast(device_type='cuda', dtype=torch.float16):
-                    outputs_phase, outputs_phase_ant = model.forward(inputs, segmaps)
+                    # [修改] 传入 flow
+                    outputs_phase, outputs_phase_ant = model.forward(inputs, segmaps, flow)
 
                     outputs_phase = outputs_phase[sequence_length - 1::sequence_length]
                     outputs_phase_ant = outputs_phase_ant[sequence_length - 1::sequence_length]
@@ -718,17 +738,22 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
         with torch.no_grad():
             for data in test_loader:
                 if use_gpu:
-                    inputs, segmaps, labels_phase, labels_phase_ant = data[0].to(device), data[1].to(device), data[2].to(device), data[3].to(device)  # inputs: Tensor: (100, 3, 224, 224); labels_phase: Tensor: (100, ); labels_phase_ant: Tensor:(100，7)
+                    # [修改] 解包5个变量
+                    inputs, segmaps, flow, labels_phase, labels_phase_ant = data[0].to(device), data[1].to(device), data[2].to(device), data[3].to(device), data[4].to(device)
                 else:
-                    inputs, segmaps, labels_phase, labels_phase_ant = data[0], data[1], data[2], data[3]
+                    inputs, segmaps, flow, labels_phase, labels_phase_ant = data[0], data[1], data[2], data[3], data[4]
 
                 labels_phase = labels_phase[(sequence_length - 1)::sequence_length]
                 labels_phase_ant = labels_phase_ant[(sequence_length - 1)::sequence_length]
 
                 inputs = inputs.view(-1, sequence_length, 3, 224, 224)
                 segmaps = segmaps.view(-1, sequence_length, 3, 224, 224)
+                # [新增] reshape flow
+                flow = flow.view(-1, sequence_length, 2, 224, 224)
+
                 with autocast(device_type='cuda', dtype=torch.float16):
-                    outputs_phase, outputs_phase_ant = model.forward(inputs, segmaps)
+                    # [修改] 传入 flow
+                    outputs_phase, outputs_phase_ant = model.forward(inputs, segmaps, flow)
 
                     outputs_phase = outputs_phase[sequence_length - 1::sequence_length]
                     outputs_phase_ant = outputs_phase_ant[sequence_length - 1::sequence_length]
