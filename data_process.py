@@ -19,6 +19,7 @@ import argparse
 import copy
 import random
 import numbers
+import math
 from torch.utils.tensorboard import SummaryWriter
 from sklearn import metrics
 import sys
@@ -60,7 +61,26 @@ class RandomCrop(object):
         self.count = 0
 
     def __call__(self, img):
+        # Handle Tensor (for Optical Flow)
+        if isinstance(img, torch.Tensor):
+            if self.padding > 0:
+                # Pad (left, right, top, bottom)
+                img = F.pad(img, (self.padding, self.padding, self.padding, self.padding), value=0)
 
+            h, w = img.shape[-2], img.shape[-1]
+            th, tw = self.size
+            if w == tw and h == th:
+                return img
+
+            # Sync logic: Re-use seed logic
+            random.seed(self.count // sequence_length)
+            x1 = random.randint(0, w - tw)
+            y1 = random.randint(0, h - th)
+            self.count += 1
+
+            return img[..., y1:y1 + th, x1:x1 + tw]
+
+        # Existing PIL logic
         if self.padding > 0:
             img = ImageOps.expand(img, border=self.padding, fill=0)
 
@@ -87,8 +107,18 @@ class RandomHorizontalFlip(object):
         random.seed(seed)
         prob = random.random()
         self.count += 1
-        # print(self.count, seed, prob)
+
         if prob < 0.5:
+            # Handle Tensor (for Optical Flow)
+            if isinstance(img, torch.Tensor):
+                # Flip width dimension (last dimension)
+                img = img.flip(-1)
+                # If flow (2 channels), negate u component (channel 0)
+                if img.shape[0] == 2:
+                    img[0] = -img[0]
+                return img
+
+            # Existing PIL logic
             return img.transpose(Image.FLIP_LEFT_RIGHT)
         return img
 
@@ -104,6 +134,29 @@ class RandomRotation(object):
         random.seed(seed)
         self.count += 1
         angle = random.randint(-self.degrees, self.degrees)
+
+        # Handle Tensor (for Optical Flow)
+        if isinstance(img, torch.Tensor):
+            # Rotate image grid
+            img = TF.rotate(img, angle)
+            # If flow, rotate vectors
+            if img.shape[0] == 2:
+                # Convert angle to radians (negative because Y-axis is down in images usually,
+                # or match TF direction. TF.rotate +angle is CCW)
+                # If we rotate image CCW, the vector (u,v) should also rotate CCW.
+                # Standard rotation matrix for CCW theta:
+                # x' = x cos - y sin
+                # y' = x sin + y cos
+                rad = math.radians(angle)
+                cos_a = math.cos(rad)
+                sin_a = math.sin(rad)
+
+                u, v = img[0].clone(), img[1].clone()
+                img[0] = u * cos_a - v * sin_a
+                img[1] = u * sin_a + v * cos_a
+            return img
+
+        # Existing PIL logic
         return TF.rotate(img, angle)
 
 
@@ -392,10 +445,40 @@ class CholecFlowDataset(Dataset):
         # 转为 Tensor: (H, W, 2) -> (2, H, W)
         flow_tensor = torch.from_numpy(flow_resized).permute(2, 0, 1).float()
 
-        # 4. 应用 Transform (Image & Segmap)
+        # 4. 应用 Transform
+        # 同步增强：必须对 flow 应用与 imgs/segmaps 相同的几何变换
         if self.transform is not None:
+            # 这里的 transform 通常是一个 Compose
+            # 我们需要遍历它，对 flow 只应用几何变换（RandomCrop, Flip, Rotation）
+            # 注意：ColorJitter 等不应应用于 flow
+
+            # Application to Images
             imgs = self.transform(imgs)
+
+            # Application to Segmaps (mask)
+            # 注意：如果 transform 包含 ColorJitter，这其实也会改变 mask 的值，
+            # 但原始 CholecSegmapDataset 就是这样写的，为了保持一致性我们先维持原样。
             segmaps = self.transform(segmaps)
+
+            # Application to Flow using filtered transforms
+            # 我们必须手动调用 transform 中的组件，或者假设 transform 是 Compose
+            if isinstance(self.transform, transforms.Compose):
+                for t in self.transform.transforms:
+                    apply_to_flow = False
+                    if isinstance(t, (RandomCrop, RandomHorizontalFlip, RandomRotation)):
+                        apply_to_flow = True
+                    elif isinstance(t, transforms.Resize): # Resize is valid for flow but usually used before Crop
+                        # 我们已经在上面 resize 过了，通常 pipeline 里的 resize 是为了确保输入尺寸
+                        # 如果 pipeline 还有 resize，也应用一下以防万一
+                        apply_to_flow = True
+                    # Skip ColorJitter, ToTensor (already tensor), Normalize (flow doesn't use ImageNet stats)
+
+                    if apply_to_flow:
+                        flow_tensor = t(flow_tensor)
+            else:
+                # 如果不是 Compose，可能就是单个 transform，简单判断
+                if isinstance(self.transform, (RandomCrop, RandomHorizontalFlip, RandomRotation)):
+                    flow_tensor = self.transform(flow_tensor)
 
         return imgs, segmaps, flow_tensor, labels_phase.astype(np.int64), labels_phase_ant.astype(np.float64)
 
