@@ -403,7 +403,8 @@ class CholecFlowDataset(Dataset):
         self.file_labels_phase_ant = file_labels[:, 8: 15]
         self.transform = transform
         self.loader = loader
-        self.target_size = (224, 224) # 假设模型输入为224x224
+        # [修改] 目标中间尺寸调整为 (250, 250)，与 transforms.Resize((250, 250)) 保持一致
+        self.target_size = (250, 250)
 
     def __getitem__(self, index):
         img_names = self.file_paths[index]
@@ -465,19 +466,22 @@ class CholecFlowDataset(Dataset):
             if isinstance(self.transform, transforms.Compose):
                 for t in self.transform.transforms:
                     apply_to_flow = False
-                    if isinstance(t, (RandomCrop, RandomHorizontalFlip, RandomRotation)):
+                    # [修改] 增加对 torchvision 原生 Crop 的支持
+                    if isinstance(t, (RandomCrop, RandomHorizontalFlip, RandomRotation,
+                                      transforms.CenterCrop, transforms.RandomCrop, transforms.RandomHorizontalFlip)):
                         apply_to_flow = True
-                    elif isinstance(t, transforms.Resize): # Resize is valid for flow but usually used before Crop
-                        # 我们已经在上面 resize 过了，通常 pipeline 里的 resize 是为了确保输入尺寸
-                        # 如果 pipeline 还有 resize，也应用一下以防万一
+                    elif isinstance(t, transforms.Resize):
+                        # 我们已经在上面 resize 过了，且手动处理了数值缩放。
+                        # 如果 pipeline 里的 resize 尺寸与 self.target_size 一致，则相当于 Identity，可以应用。
+                        # 鉴于我们 hardcode 了 250，这里允许 resize。
                         apply_to_flow = True
-                    # Skip ColorJitter, ToTensor (already tensor), Normalize (flow doesn't use ImageNet stats)
 
                     if apply_to_flow:
                         flow_tensor = t(flow_tensor)
             else:
                 # 如果不是 Compose，可能就是单个 transform，简单判断
-                if isinstance(self.transform, (RandomCrop, RandomHorizontalFlip, RandomRotation)):
+                if isinstance(self.transform, (RandomCrop, RandomHorizontalFlip, RandomRotation,
+                                               transforms.CenterCrop, transforms.RandomCrop, transforms.RandomHorizontalFlip)):
                     flow_tensor = self.transform(flow_tensor)
 
         return imgs, segmaps, flow_tensor, labels_phase.astype(np.int64), labels_phase_ant.astype(np.float64)
