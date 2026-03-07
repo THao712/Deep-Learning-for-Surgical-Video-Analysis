@@ -343,3 +343,17 @@ model1.load_state_dict(torch.load(model1_path + model1_name))
 4. **日志监控**：使用 `tail -f` 命令实时监控训练进度
 5. **模型选择**：选择验证集性能最好的 epoch 对应的模型文件进行后续训练和推理
 
+
+### 服务器清理
+删除文件后清空转移到服务器回收站内的文件
+```bash
+du -sh /root/autodl-tmp/.Trash-0
+```
+
+```bash
+ls -la /root/autodl-tmp/.Trash-0
+```
+
+```bash
+rm -rf /root/autodl-tmp/.Trash-0/*
+```
