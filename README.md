@@ -67,7 +67,7 @@ nvidia-smi
 ```bash
 nohup python finetune_evp.py > finetune_log.txt 2>&1 &
 ```
-
+注意要修改： target_train_loss的值为上一阶段训练的最佳epoch的loss值
 #### 查看训练日志
 ```bash
 tail -f finetune_log.txt
