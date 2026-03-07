@@ -351,9 +351,9 @@ du -sh /root/autodl-tmp/.Trash-0
 ```
 
 ```bash
-ls -la /root/autodl-tmp/.Trash-0
+ls -la /root/autodl-tmp/.Trash-0/files
 ```
 
 ```bash
-rm -rf /root/autodl-tmp/.Trash-0/*
+rm -rf /root/autodl-tmp/.Trash-0/files/*
 ```
