@@ -20,7 +20,7 @@ from models.mix_transformer_evp import mit_b3_evp, mit_b4_evp, mit_b2_evp,mit_b5
 from models.data_process import CholecSegmapDataset, M2caiSegmapDataset,RandomCrop, RandomHorizontalFlip,\
                                 RandomRotation, ColorJitter, SeqSampler, get_useful_start_idx, CholecFlowDataset
 import sys
-#同步
+#
 np.set_printoptions(threshold=sys.maxsize)
 
 parser = argparse.ArgumentParser(description='lstm training')
@@ -281,14 +281,14 @@ def finetune_model(train_dataset, train_num_each, test_dataset, test_num_each):
 
     # 从上次第18个最佳epoch开始训练
     embed_dict = torch.load(
-        'bimask_ss_pos/cholec80/stage1_32_8_40/embedding1/evpfc_ce_epoch_39_length_1_opt_0_mulopt_1_flip_1_crop_1_batch_88_train_9945_val_8257_test_8002.pth')
+        'bimask_ss_pos/cholec80/stage1_32_8_40/embedding1/evpfc_ce_epoch_27_length_1_opt_0_mulopt_1_flip_1_crop_1_batch_88_train_9952_val_8232_test_8011.pth')
 
     model.load_state_dict(embed_dict, strict=False)
 
 
     # # 冻结主干，只训练head和prompt部分
     for name, param in model.named_parameters():
-        if "head" not in name and "prompt" not in name:
+        if "head" not in name and "prompt" not in name and "flow_encoder" not in name and "cross_attn_s3" not in name and "cross_attn_s4" not in name:
             param.requires_grad = False
 
     if use_gpu:
@@ -317,6 +317,9 @@ def finetune_model(train_dataset, train_num_each, test_dataset, test_num_each):
             optimizer = optim.SGD([
                 {'params': model.prompt_generator.parameters(), 'lr': learning_rate},
                 {'params': model.head.parameters(), 'lr': learning_rate},
+                {'params': model.flow_encoder.parameters(), 'lr': learning_rate},
+                {'params': model.cross_attn_s3.parameters(), 'lr': learning_rate},
+                {'params': model.cross_attn_s4.parameters(), 'lr': learning_rate},
                 # {'params': model.parameters(), 'lr': learning_rate}
             ], lr=learning_rate / 10, momentum=momentum, dampening=dampening,
                 weight_decay=weight_decay, nesterov=use_nesterov)
@@ -328,11 +331,14 @@ def finetune_model(train_dataset, train_num_each, test_dataset, test_num_each):
             optimizer = optim.Adam([
                 {'params': model.prompt_generator.parameters(), 'lr': learning_rate},
                 {'params': model.head.parameters(), 'lr': learning_rate},
+                {'params': model.flow_encoder.parameters(), 'lr': learning_rate},
+                {'params': model.cross_attn_s3.parameters(), 'lr': learning_rate},
+                {'params': model.cross_attn_s4.parameters(), 'lr': learning_rate},
                 # {'params': model.parameters(), 'lr': learning_rate}
             ], lr=learning_rate / 10)
 
     best_model_wts = copy.deepcopy(model.state_dict())
-    best_train_acc_phase = 0.0163#同步
+    best_train_acc_phase = 0.0144#同步
     correspond_train_acc_phase = 0.0
     best_epoch = 0
 
@@ -587,7 +593,7 @@ def finetune_model(train_dataset, train_num_each, test_dataset, test_num_each):
 
         # --- 【新增】自动停止逻辑 ---
         # 设定您的第一阶段最佳 Loss (Loss1)
-        target_train_loss = 0.0163
+        target_train_loss = 0.0144
 
         # 检查当前 epoch 的训练 loss 是否已经小于这一阶段的目标
         if train_average_loss_phase < target_train_loss:
