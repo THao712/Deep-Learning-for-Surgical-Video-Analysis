@@ -13,7 +13,7 @@ from .segformer_head import SegFormerHead
 import math
 from functools import reduce
 from operator import mul
-
+#同步
 from torchvision import transforms
 
 class DWConv(nn.Module):
@@ -287,6 +287,15 @@ class MixVisionTransformerEVP(nn.Module):
                                                 self.input_type, self.freq_nums,
                                                 self.handcrafted_tune, self.embedding_tune, self.adaptor,
                                                 img_size)
+                                                
+        # [NEW] Initialize Optical Flow Fusion Modules for Stage 3 and 4
+        # embed_dims: [64, 128, 320, 512] for b2, so embed_dims[2] is 320, embed_dims[3] is 512
+        self.flow_encoder = OpticalFlowEncoder(out_dim_s3=embed_dims[2], out_dim_s4=embed_dims[3])
+        
+        # Cross Attention for Stage 3
+        self.cross_attn_s3 = MotionGuidedCrossAttention(dim=embed_dims[2])
+        # Cross Attention for Stage 4
+        self.cross_attn_s4 = MotionGuidedCrossAttention(dim=embed_dims[3])
 
     def _init_weights(self, m):
         if isinstance(m, nn.Linear):
@@ -340,26 +349,17 @@ class MixVisionTransformerEVP(nn.Module):
         self.num_classes = num_classes
         self.head = nn.Linear(self.embed_dim, num_classes) if num_classes > 0 else nn.Identity()
 
-    def forward_features(self, x, y, flow=None):
-        # x is image, y is segmap, flow is optical flow
+    def forward_features(self, x, y):
+        # x is image, y is segmap
         x = x.view(-1, 3, 224, 224)
         y = y.view(-1, 3, 224, 224)
-
-        if flow is not None:
-             # Ensure flow is (B, 2, 224, 224). Just in case.
-             # If using DataLoader from CholecFlowDataset, it should be correct.
-             flow = flow.view(-1, 2, 224, 224)
 
         B = x.shape[0]
         outs = []
 
-        # Call init_prompts instead of init_handcrafted
+        # Call init_prompts WITHOUT flow (Early concatenation removed)
         if self.handcrafted_tune:
-            # This returns tuple of fused prompts for 4 stages
-            handcrafted_prompts = self.prompt_generator.init_prompts(y, flow)
-            # handcrafted1, handcrafted2, handcrafted3, handcrafted4 = handcrafted_prompts
-            # Unpacking will happen inside loop or by indexing if we change structure
-            # Original code unpacked them:
+            handcrafted_prompts = self.prompt_generator.init_prompts(y)
             handcrafted1, handcrafted2, handcrafted3, handcrafted4 = handcrafted_prompts
         else:
             handcrafted1, handcrafted2, handcrafted3, handcrafted4 = None, None, None, None
@@ -415,9 +415,36 @@ class MixVisionTransformerEVP(nn.Module):
 
         return outs
 
-    def forward(self, x, y, flow=None):
-        x = self.forward_features(x, y, flow)  # x=list(4): Tensor(B,32,56,56), Tensor(B,64,28,28), Tensor(B,160,14,14), Tensor(B,256,7,7)
-        x = self.head(x)
+    def forward(self, x, y, flow=None, return_features=False):
+        # 1. Extract Spatial Features (Backbone) - Using RGB & Mask (Early Guidance)
+        outs = self.forward_features(x, y) # outs: [c1, c2, c3, c4]
+        
+        # 2. Process Optical Flow if available
+        if flow is not None:
+             # OpticalFlowEncoder handles flattening, but we need to match backbone's batch dim
+             # Encode Flow -> Flow Tokens for Stage 3 and Stage 4
+             flow_tokens_s3, flow_tokens_s4 = self.flow_encoder(flow) 
+             
+             # --- Stage 3 Fusion ---
+             c3 = outs[2]
+             B_feat3, C3, H3, W3 = c3.shape
+             c3_tokens = c3.flatten(2).transpose(1, 2)
+             
+             fused_tokens_s3 = self.cross_attn_s3(x_visual=c3_tokens, x_flow=flow_tokens_s3)
+             fused_c3 = fused_tokens_s3.transpose(1, 2).reshape(B_feat3, C3, H3, W3)
+             outs[2] = fused_c3
+
+             # --- Stage 4 Fusion ---
+             c4 = outs[3] 
+             B_feat4, C4, H4, W4 = c4.shape
+             c4_tokens = c4.flatten(2).transpose(1, 2)
+             
+             fused_tokens_s4 = self.cross_attn_s4(x_visual=c4_tokens, x_flow=flow_tokens_s4)
+             fused_c4 = fused_tokens_s4.transpose(1, 2).reshape(B_feat4, C4, H4, W4)
+             outs[3] = fused_c4
+
+        # 4. Temporal Module / Classification Head
+        x = self.head(outs, return_features=return_features)
 
         return x
 
@@ -548,68 +575,6 @@ class PromptGenerator(nn.Module):
             self.prompt = nn.Parameter(torch.zeros(3, img_size, img_size), requires_grad=False)
         if self.input_type == 'bimask':
             self.bimask_pos_embed = nn.Parameter(torch.zeros(3, img_size, img_size))
-
-        # ============================================================
-        # New Components for Optical Flow and Fusion
-        # ============================================================
-        self.flow_tune = True # Enable flow tuning by default or based on config
-
-        # 1. Flow Encoders (Similar to handcrafted_generator for Segmaps)
-        # Input channels = 2 for Optical Flow
-        if self.flow_tune:
-            if '1' in self.tuning_stage:
-                self.flow_generator1 = OverlapPatchEmbed(img_size=img_size, patch_size=7, stride=4, in_chans=2,
-                                                        embed_dim=self.embed_dims[0] // self.scale_factor)
-            if '2' in self.tuning_stage:
-                self.flow_generator2 = OverlapPatchEmbed(img_size=img_size // 4, patch_size=3, stride=2,
-                                                       in_chans=self.embed_dims[0] // self.scale_factor,
-                                                       embed_dim=self.embed_dims[1] // self.scale_factor)
-            if '3' in self.tuning_stage:
-                self.flow_generator3 = OverlapPatchEmbed(img_size=img_size // 8, patch_size=3, stride=2,
-                                                       in_chans=self.embed_dims[1] // self.scale_factor,
-                                                       embed_dim=self.embed_dims[2] // self.scale_factor)
-            if '4' in self.tuning_stage:
-                self.flow_generator4 = OverlapPatchEmbed(img_size=img_size // 16, patch_size=3, stride=2,
-                                                       in_chans=self.embed_dims[2] // self.scale_factor,
-                                                       embed_dim=self.embed_dims[3] // self.scale_factor)
-
-        # 2. Unification Adapters (Seg & Flow) & 3. Video Projectors
-        # Target Dim for Unification is (embed_dim // scale) / 2
-
-        for i, stage in enumerate(['1', '2', '3', '4']):
-            if stage in self.tuning_stage:
-                dim_original = self.embed_dims[i]
-                dim_prompt = dim_original // self.scale_factor
-                dim_unified = dim_prompt // 2
-
-                # [新增] Linear Projection Layer for Segmentation
-                # "随后该向量被输入至一个可训练的线性投影层"
-                seg_projector = nn.Linear(dim_prompt, dim_prompt)
-                setattr(self, f'seg_projector{stage}', seg_projector)
-
-                # [新增] Linear Projection Layer for Optical Flow
-                # "然后通过可训练的线性投影层将初级特征向量投影至本研究所需的特征维度"
-                flow_projector = nn.Linear(dim_prompt, dim_prompt)
-                setattr(self, f'flow_projector{stage}', flow_projector)
-
-                # Adapter for Segmentation: dim_prompt -> dim_unified
-                # "适配器架构为两个多层感知机(MLP)，激活函数选择GELU"
-                seg_adapter = nn.Sequential(
-                    Mlp(in_features=dim_prompt, hidden_features=dim_prompt, out_features=dim_unified, act_layer=nn.GELU),
-                    Mlp(in_features=dim_unified, hidden_features=dim_unified, out_features=dim_unified, act_layer=nn.GELU)
-                )
-                setattr(self, f'seg_unification_adapter{stage}', seg_adapter)
-
-                # Adapter for Flow: dim_prompt -> dim_unified
-                flow_adapter = nn.Sequential(
-                    Mlp(in_features=dim_prompt, hidden_features=dim_prompt, out_features=dim_unified, act_layer=nn.GELU),
-                    Mlp(in_features=dim_unified, hidden_features=dim_unified, out_features=dim_unified, act_layer=nn.GELU)
-                )
-                setattr(self, f'flow_unification_adapter{stage}', flow_adapter)
-
-                # Video Frame Projector: dim_original -> dim_prompt (to match concatenated dimensions)
-                video_projector = nn.Linear(dim_original, dim_prompt)
-                setattr(self, f'video_projector{stage}', video_projector)
 
 
         if self.handcrafted_tune:
@@ -748,15 +713,11 @@ class PromptGenerator(nn.Module):
                 m.bias.data.zero_()
 
     def init_handcrafted(self, x):
-        # This method is being replaced by init_prompts to support flow fusion
-        # Keeping it for compatibility if needed, but MixVisionTransformerEVP will call init_prompts
-        return self.init_prompts(x, None)
+        return self.init_prompts(x)
 
-    def init_prompts(self, segmap, flow=None):
-        # x renamed to segmap for clarity
+    def init_prompts(self, segmap):
         x = segmap
 
-        # --- 1. Process Segmentation Map (Existing Logic) ---
         if self.input_type == 'fft':
             x = self.fft(x, self.freq_nums, self.prompt_type)
         elif self.input_type == 'all':
@@ -769,13 +730,11 @@ class PromptGenerator(nn.Module):
             x = x.repeat(1, 3, 1, 1)
 
         B = x.shape[0]
-
         # Segmap Features
         seg_feats = [None] * 4
         if '1' in self.tuning_stage:
             seg_feats[0], H1, W1 = self.handcrafted_generator1(x)
         if '2' in self.tuning_stage:
-            # Reshape previous stage output to image-like format for next stage input
             prev = seg_feats[0].reshape(B, H1, W1, -1).permute(0, 3, 1, 2).contiguous()
             seg_feats[1], H2, W2 = self.handcrafted_generator2(prev)
         if '3' in self.tuning_stage:
@@ -785,83 +744,7 @@ class PromptGenerator(nn.Module):
             prev = seg_feats[2].reshape(B, H3, W3, -1).permute(0, 3, 1, 2).contiguous()
             seg_feats[3], H4, W4 = self.handcrafted_generator4(prev)
 
-        # --- 2. Process Optical Flow (New Logic) ---
-        flow_feats = [None] * 4
-        if self.flow_tune and flow is not None:
-             # Flow processing mirrors Segmap processing but with flow_generators
-            if '1' in self.tuning_stage:
-                flow_feats[0], fH1, fW1 = self.flow_generator1(flow)
-            if '2' in self.tuning_stage:
-                prev = flow_feats[0].reshape(B, fH1, fW1, -1).permute(0, 3, 1, 2).contiguous()
-                flow_feats[1], fH2, fW2 = self.flow_generator2(prev)
-            if '3' in self.tuning_stage:
-                prev = flow_feats[1].reshape(B, fH2, fW2, -1).permute(0, 3, 1, 2).contiguous()
-                flow_feats[2], fH3, fW3 = self.flow_generator3(prev)
-            if '4' in self.tuning_stage:
-                prev = flow_feats[2].reshape(B, fH3, fW3, -1).permute(0, 3, 1, 2).contiguous()
-                flow_feats[3], fH4, fW4 = self.flow_generator4(prev)
-
-        # --- 3. Fusion & Unification ---
-        fused_prompts = [None] * 4
-        for i, stage in enumerate(['1', '2', '3', '4']):
-            if stage in self.tuning_stage:
-                seg_feat = seg_feats[i]
-
-                if flow_feats[i] is not None:
-                    flow_feat = flow_feats[i]
-
-                    # [新增] Apply Linear Projections First
-                    # Generator Output (B, N, C) -> Linear -> Projected Feature
-                    seg_proj_layer = getattr(self, f'seg_projector{stage}')
-                    flow_proj_layer = getattr(self, f'flow_projector{stage}')
-
-                    seg_feat = seg_proj_layer(seg_feat)
-                    flow_feat = flow_proj_layer(flow_feat)
-
-                    # Apply Unification Adapters
-                    seg_adapter = getattr(self, f'seg_unification_adapter{stage}')
-                    flow_adapter = getattr(self, f'flow_unification_adapter{stage}')
-
-                    # Note: Adapters expect (B, N, C). MLP defined earlier handles this.
-                    # Mlp.forward(x, H, W) requires H, W.
-                    # But our unification adapters are nn.Sequential(Mlp, Mlp).
-                    # Wait, Mlp class forward signature is (x, H, W). nn.Sequential won't pass H, W automatically!
-
-                    # We have H, W from generator outputs (e.g. H1, W1).
-                    # We need to construct the H, W list.
-                    Hs = [H1, H2, H3, H4]
-                    Ws = [W1, W2, W3, W4]
-                    cur_H, cur_W = Hs[i], Ws[i]
-
-                    # Manual forward for sequential containing Mlp layers that need H, W
-                    # Or since I defined them as nn.Sequential(Mlp, Mlp), I can't just call it.
-                    # I must unpack or define valid forward.
-
-                    # Let's perform step-by-step
-                    # Seg
-                    s_out = seg_feat
-                    for layer in seg_adapter:
-                        s_out = layer(s_out, cur_H, cur_W)
-
-                    # Flow
-                    f_out = flow_feat
-                    for layer in flow_adapter:
-                        f_out = layer(f_out, cur_H, cur_W)
-
-                    # Concatenate
-                    # Both are (B, N, C_unified) -> Concat to (B, N, 2*C_unified) = (B, N, C_prompt)
-                    fused_prompts[i] = torch.cat([s_out, f_out], dim=-1)
-                else:
-                    # Fallback if no flow provided (though user request implies robust fusion)
-                    # For compatibility, just return seg_feat (but dims might mismatch later)
-                    # Ideally we should strictly follow the architecture.
-                    # Assuming flow is always present for this mode.
-                    # If flow is None, we might need a dummy or skip.
-                    fused_prompts[i] = seg_feat
-
-        # Return tuple matching 4 stages
-        return tuple(fused_prompts)
-
+        return tuple(seg_feats)
 
     def init_prompt(self, embedding_feature, handcrafted_feature, block_num):
         if self.embedding_tune:
@@ -891,21 +774,24 @@ class PromptGenerator(nn.Module):
             return None
 
     def get_prompt(self, x, prompt, block_num, depth_num):
-        # Revised get_prompt for Synergistic Fusion
+        # Revised get_prompt
+        # 'prompt' is a tuple: (handcrafted_feature, embedding_feature)
+        # handcrafted_feature corresponds to segmentation mask features
+        # embedding_feature corresponds to the projected video frame embedding
 
-        # 'prompt' argument passed from forward_features is a tuple: (handcrafted_feature, embedding_feature)
-        # handcrafted_feature corresponds to our 'fused_prompts[i]' (Seg + Flow)
-        # embedding_feature corresponds to the projected video frame embedding (projected via embedding_generator)
+        seg_prompt_feat, embedding_feat = prompt
 
-        fused_prompt_feat, embedding_feat = prompt
+        # Combine Segmentation Prompt and Visual Embedding Prompt
+        if seg_prompt_feat is not None and embedding_feat is not None:
+             prompt_feat = seg_prompt_feat + embedding_feat
+        elif seg_prompt_feat is not None:
+             prompt_feat = seg_prompt_feat
+        elif embedding_feat is not None:
+             prompt_feat = embedding_feat
+        else:
+             prompt_feat = 0 
 
-        # 2. Synergistic Addition
-        # "逐元素相加，从而得到最终的光流-器械协同提示"
-        # We use embedding_feat directly as it is already the projected video frame embedding
-        synergistic_prompt = embedding_feat + fused_prompt_feat
-
-        # 3. Input to Prompt Adapter Block (Existing Logic)
-        feat = synergistic_prompt
+        feat = prompt_feat
 
         if self.adaptor == 'adaptor':
             lightweight_mlp = getattr(self, 'lightweight_mlp' + str(block_num) + '_' + str(depth_num))
@@ -925,6 +811,81 @@ class PromptGenerator(nn.Module):
         # 4. Add to original input
         x = x + feat
 
+
+        return x
+
+
+class OpticalFlowEncoder(nn.Module):
+    def __init__(self, out_dim_s3=320, out_dim_s4=512):
+        # 修复：使用更简洁的 Python 3 super() 写法
+        super().__init__()
+
+        self.conv1 = nn.Conv2d(2, 64, kernel_size=7, stride=4, padding=3)
+        self.bn1 = nn.BatchNorm2d(64)
+        self.act = nn.ReLU(inplace=True)
+
+        self.conv2 = nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1)
+        self.bn2 = nn.BatchNorm2d(128)
+
+        # Stage 3
+        self.conv3 = nn.Conv2d(128, out_dim_s3, kernel_size=3, stride=2, padding=1)
+        self.bn3 = nn.BatchNorm2d(out_dim_s3)
+
+        # Stage 4
+        self.conv4 = nn.Conv2d(out_dim_s3, out_dim_s4, kernel_size=3, stride=2, padding=1)
+        self.bn4 = nn.BatchNorm2d(out_dim_s4)
+
+    def forward(self, x):
+        # x: (B, T, 2, H, W) or (B*T, 2, H, W)
+        
+        # Handle Temporal Dimension
+        if x.dim() == 5:
+            B, T, C, H, W = x.shape
+            x = x.contiguous().view(B * T, C, H, W)
+            
+        x = self.act(self.bn1(self.conv1(x)))
+        x = self.act(self.bn2(self.conv2(x)))
+        
+        # Stage 3 output (stride 16)
+        x_s3 = self.act(self.bn3(self.conv3(x)))
+        
+        # Stage 4 output (stride 32)
+        x_s4 = self.act(self.bn4(self.conv4(x_s3)))
+
+        # Flatten both: (B*T, out_dim, H', W') -> (B*T, H'*W', out_dim)
+        feat_s3 = x_s3.flatten(2).transpose(1, 2)
+        feat_s4 = x_s4.flatten(2).transpose(1, 2)
+        
+        return feat_s3, feat_s4
+
+
+class MotionGuidedCrossAttention(nn.Module):
+    def __init__(self, dim, num_heads=8, attn_drop=0., proj_drop=0.):
+        # 修复：使用更简洁的 Python 3 super() 写法
+        super().__init__()
+
+        # 优化：使用 PyTorch 官方高度优化的多头注意力机制
+        self.cross_attn = nn.MultiheadAttention(
+            embed_dim=dim,
+            num_heads=num_heads,
+            dropout=attn_drop,
+            batch_first=True # 确保输入格式为 (Batch, Seq, Feature)
+        )
+
+        self.proj_drop = nn.Dropout(proj_drop)
+        self.norm = nn.LayerNorm(dim)
+
+    def forward(self, x_visual, x_flow):
+        # x_visual (Query): (B, N_v, dim)
+        # x_flow (Key, Value): (B, N_f, dim)
+
+        # 官方 API：query, key, value
+        attn_output, _ = self.cross_attn(query=x_visual, key=x_flow, value=x_flow)
+
+        attn_output = self.proj_drop(attn_output)
+
+        # Add & Norm (Residual Connection)
+        x = self.norm(x_visual + attn_output)
 
         return x
 
