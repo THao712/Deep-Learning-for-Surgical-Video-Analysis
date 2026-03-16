@@ -14,7 +14,7 @@ import os
 from generate_phase_anticipation import plot_phase_anticipation
 from models.adapter_transformer import Transformer
 from models.modules import *
-
+#同步
 torch.set_printoptions(threshold=np.inf)
 
 # os.environ['CUDA_VISIBLE_DEVICES'] = str(np.argmax([int(x.split()[2]) for x in subprocess.Popen(
@@ -196,7 +196,7 @@ criterion_cls = nn.CrossEntropyLoss(weight=torch.from_numpy(weights_train).float
 
 model = mstcn.MultiStageModel_S(mstcn_stages, mstcn_layers, mstcn_f_maps, mstcn_f_dim, out_features, mstcn_causal_conv)
 model_path = 'bimask_ss_pos/cholec80/stage2_40_40/TeCNO1-2/'
-model_name = 'TeCNOevp_epoch_15'
+model_name = 'TeCNOevp_epoch_4'
 model.load_state_dict(torch.load(model_path + model_name + '.pth'))
 if use_gpu:
     model.cuda()
@@ -204,7 +204,7 @@ model.eval()
 
 model1 = Transformer(mstcn_f_maps, mstcn_f_dim, out_features, sequence_length)
 model1_path = 'bimask_ss_pos/cholec80/stage2_40_40/TeCNO_t1-2/'
-model1_name = 'TeCNOevp_trans1_3_5_1_length_30_epoch_1_train_9780_val_9210.pth'  # todo
+model1_name = 'TeCNOevp_trans1_3_5_1_length_30_epoch_2_train_9787_val_9253.pth'  # todo
 model1.load_state_dict(torch.load(model1_path + model1_name))
 if use_gpu:
     model1.cuda()

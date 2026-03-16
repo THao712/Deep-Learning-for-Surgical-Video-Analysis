@@ -16,7 +16,7 @@ from torch.utils.tensorboard import SummaryWriter
 #    "nvidia-smi -q -d Memory | grep -A4 GPU | grep Free", shell=True, stdout=subprocess.PIPE).stdout.readlines()]))
 os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 
-
+#
 def get_data(data_path):
     with open(data_path, 'rb') as f:
         train_test_paths_labels = pickle.load(f)
@@ -188,7 +188,7 @@ criterion_cls = nn.CrossEntropyLoss(weight=torch.from_numpy(weights_train).float
 
 model = mstcn.MultiStageModel_S(mstcn_stages, mstcn_layers, mstcn_f_maps, mstcn_f_dim, out_features, mstcn_causal_conv)
 model_path = 'bimask_ss_pos/cholec80/stage2_40_40/TeCNO1-2/'
-model_name = 'TeCNOevp_epoch_15'
+model_name = 'TeCNOevp_epoch_4'
 model.load_state_dict(torch.load(model_path + model_name + '.pth'))
 model.cuda()
 model.eval()

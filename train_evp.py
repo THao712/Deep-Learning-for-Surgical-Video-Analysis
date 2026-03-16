@@ -19,7 +19,7 @@ from models.mix_transformer_evp import mit_b3_evp, mit_b4_evp, mit_b2_evp,mit_b5
 from models.data_process import CholecSegmapDataset, M2caiSegmapDataset,RandomCrop, RandomHorizontalFlip, \
     RandomRotation, ColorJitter, SeqSampler, get_useful_start_idx, CholecFlowDataset
 import sys
-
+#同步
 np.set_printoptions(threshold=sys.maxsize)
 
 parser = argparse.ArgumentParser(description='lstm training')
@@ -377,7 +377,7 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
 
     # # 冻结主干，只训练head和prompt部分
     for name, param in model.named_parameters():
-        if "head" not in name and "prompt" not in name:
+        if "head" not in name and "prompt" not in name and "flow_encoder" not in name and "cross_attn_s3" not in name and "cross_attn_s4" not in name:
             # if "prompt_generator" not in name:
             param.requires_grad = False
 
@@ -407,6 +407,9 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
             optimizer = optim.SGD([
                 {'params': model.prompt_generator.parameters(), 'lr': learning_rate},
                 {'params': model.head.parameters(), 'lr': learning_rate},
+                {'params': model.flow_encoder.parameters(), 'lr': learning_rate},
+                {'params': model.cross_attn_s3.parameters(), 'lr': learning_rate},
+                {'params': model.cross_attn_s4.parameters(), 'lr': learning_rate},
                 # {'params': model.parameters(), 'lr': learning_rate}
             ], lr=learning_rate / 10, momentum=momentum, dampening=dampening,
                 weight_decay=weight_decay, nesterov=use_nesterov)
@@ -418,6 +421,9 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
             optimizer = optim.Adam([
                 {'params': model.prompt_generator.parameters(), 'lr': learning_rate},
                 {'params': model.head.parameters(), 'lr': learning_rate},
+                {'params': model.flow_encoder.parameters(), 'lr': learning_rate},
+                {'params': model.cross_attn_s3.parameters(), 'lr': learning_rate},
+                {'params': model.cross_attn_s4.parameters(), 'lr': learning_rate},
                 # {'params': model.parameters(), 'lr': learning_rate}
             ], lr=learning_rate / 10)
 

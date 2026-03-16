@@ -28,7 +28,7 @@ import os, subprocess
 #os.environ['CUDA_VISIBLE_DEVICES'] = str(np.argmax([int(x.split()[2]) for x in subprocess.Popen(
 #    "nvidia-smi -q -d Memory | grep -A4 GPU | grep Free", shell=True, stdout=subprocess.PIPE).stdout.readlines()]))
 os.environ['CUDA_VISIBLE_DEVICES'] = "0"
-#同步
+#
 parser = argparse.ArgumentParser(description='lstm training')
 parser.add_argument('-g', '--gpu', default=True, type=bool, help='gpu use, default True')
 parser.add_argument('-s', '--seq', default=1, type=int, help='sequence length, default 10')
@@ -411,7 +411,7 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
 
         model_LFB = mit_b3_evp()
         model_LFB.load_state_dict(torch.load(
-            "bimask_ss_pos/cholec80/stage2_40_40/embedding1/evpfc_ce_STOPPED_EARLY_epoch_15_loss_162_train_9945_test_8068.pth"))
+            "bimask_ss_pos/cholec80/stage2_40_40/embedding1/evpfc_ce_STOPPED_EARLY_epoch_15_loss_137_train_9955_test_7937.pth"))
 
 
 #可能需要改成：实验权重/bimask_ss_pos/cholec80/stage2_40_40/embedding1/evpfc_ce_epoch_9_length_1_opt_0_mulopt_1_flip_1_crop_1_batch_88_train_9919_test_8116.pth"))
@@ -450,8 +450,8 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
                 # [新增] 处理 flow shape -> (B, T, 2, 224, 224)
                 flow = flow.view(-1, sequence_length, 2, 224, 224)
 
-                # [修改] 传递 flow 到 forward
-                outputs_feature = model_LFB.forward(inputs, segmaps, flow).data.cpu().numpy()
+                # [修改] 传递 flow 到 forward，并启用 return_features=True 以获取特征向量
+                outputs_feature = model_LFB.forward(inputs, segmaps, flow, return_features=True).data.cpu().numpy()
                 # outputs_feature = model_LFB.forward(inputs).data.cpu().numpy()  # output feature = lt， ndarray=(batchsize,2048)
 
                 g_LFB_train = np.concatenate((g_LFB_train, outputs_feature), axis=0)
@@ -472,7 +472,7 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
                 flow = flow.view(-1, sequence_length, 2, 224, 224)
 
                 # [修改]
-                outputs_feature = model_LFB.forward(inputs, segmaps, flow).data.cpu().numpy()
+                outputs_feature = model_LFB.forward(inputs, segmaps, flow, return_features=True).data.cpu().numpy()
 
                 g_LFB_val = np.concatenate((g_LFB_val, outputs_feature), axis=0)
 
@@ -492,7 +492,7 @@ def train_model(train_dataset, train_num_each, val_dataset, val_num_each):
                 flow = flow.view(-1, sequence_length, 2, 224, 224)
 
                 # [修改]
-                outputs_feature = model_LFB.forward(inputs, segmaps, flow).data.cpu().numpy()
+                outputs_feature = model_LFB.forward(inputs, segmaps, flow, return_features=True).data.cpu().numpy()
 
                 g_LFB_test = np.concatenate((g_LFB_test, outputs_feature), axis=0)
 
