@@ -64,6 +64,24 @@ nvidia-smi
 查看PID，执行kill PID(数字)
 
 #### 第二阶段微调（所有的命令基本都是在code_80目录下执行，即执行cd /root/autodl-tmp/data/code_80切换到code_80目录）
+
+注意，运行前，要改变代码的下面这两部分：
+```
+        # 设定您的第一阶段最佳 Loss (Loss1)
+        target_train_loss = 0.0153
+```
+
+
+上面的0.0153是train_evp.py训练的最佳epoch的loss，把你实际运行处的结果替换掉这个值，Ctrl+F可以打开搜索框，输入target就可以定位到这里
+
+```
+embed_dict = torch.load(
+        'bimask_ss_pos/cholec80/stage1_32_8_40/embedding1/evpfc_ce_epoch_25_length_1_opt_0_mulopt_1_flip_1_crop_1_batch_88_train_9951_val_8145_test_7750.pth')
+
+
+```
+同理把上面的最佳权重名称改为实际的名称，找到train_log.txt里面的best epoch，然后取bimask_ss_pos/stage_1_32_8_40/embedding1里面找到对应的权重文件，比如上面的就是第25个epoch，就找到他把他的名称复制到对应位置即可
+
 ```bash
 nohup python finetune_evp.py > finetune_log.txt 2>&1 &
 ```
@@ -83,7 +101,15 @@ tensorboard --logdir="D:\srtp\dataset\code_80\bimask_ss_pos\cholec80\stage1_32_8
 一、二阶段训练是为了训练我们的主干网络即SegFormer的参数，作为特征提取器
 
 ### 3. 特征提取
-使用训练好的 SegFormer 提取特征，注意也要在服务器的code_80目录下执行：
+使用训练好的 SegFormer 提取特征，注意也要在服务器的code_80目录下执行：修改权重，改法和上面一样，后续不再赘述，要修改的地方是：
+
+
+```
+model_LFB.load_state_dict(torch.load(
+            "bimask_ss_pos/cholec80/stage2_40_40/embedding1/evpfc_ce_STOPPED_EARLY_epoch_22_loss_147_train_9949_test_7783.pth"))
+
+
+```
 
 ```bash
 nohup python generate_evp_LFB.py > generate_LFB_log.txt 2>&1 &
@@ -95,7 +121,7 @@ tail -f generate_LFB_log.txt
 
 ### 4. 时序模型训练
 这个文件负责训练MS-TCN的参数：随机初始化参数后，使用generate_evp_LFB提取好的特征进行参数训练与优化，得到训练好的MS-TCN模型，.pth就是它的参数文件
-
+这里不需要跟上面一样修改权重文件的名称
 #### MS-TCN 训练
 ```bash
 nohup python tecno.py > tecno_log.txt 2>&1 &
@@ -106,7 +132,10 @@ tail -f tecno_log.txt
 
 #### Transformer 训练
 
-这个文件是训练Transformer的参数，先用训练好的MS-TCN模型，对generate_evp_LFB提取好的空间特征再提取时序特征，然后与空间特征一起输入Transformer进行参数训练与优化，得到训练好的Transformer模型，.pth为其参数文件
+这个文件是训练Transformer的参数，先用训练好的MS-TCN模型，对generate_evp_LFB提取好的空间特征再提取时序特征，然后与空间特征一起输入Transformer进行参数训练与优化，得到训练好的Transformer模型，.pth为其参数文件，要修改下面的地方，也是改成上一阶段的最佳epoch即可
+```
+model_name = 'TeCNOevp_epoch_49'
+```
 
 ```bash
 nohup python tecno_trans.py > tecno_trans_log.txt 2>&1 &
@@ -117,6 +146,11 @@ tail -f tecno_trans_log.txt
 
 ### 5. 推理预测
 这个文件是用训练好的模型（MS-TCN和Transformer）对验证集和测试集作预测，得到结果，其输入是generate_evp_LFB.py提取的空间特征、两个模型的参数文件，加载训练好的模型进行预测：
+修改下面的两处：
+```
+model_name = 'TeCNOevp_epoch_49'
+model1_name = 'TeCNOevp_trans1_3_5_1_length_30_epoch_1_train_9892_val_8857.pth'  # todo
+```
 
 ```bash
 nohup python trans_SV_output.py > trans_SV_output_log.txt 2>&1 &
