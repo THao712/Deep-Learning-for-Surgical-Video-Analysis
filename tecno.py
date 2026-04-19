@@ -96,14 +96,19 @@ batch_size = 1
 features_per_seconds = 25
 features_subsampling = 1
 mstcn_causal_conv = True
-learning_rate = 1e-3
+# learning_rate = 1e-3  # 旧配置
+learning_rate = 1e-4    # 新配置
+# min_epochs = 4  # 旧配置
 min_epochs = 4
 max_epochs = 100
 mstcn_layers = 8
-mstcn_f_maps = 32
+mstcn_f_maps = 64
 mstcn_f_dim = 2048
 mstcn_stages = 2
 horizon = 5
+# 新增：优化器与稳定训练相关配置
+weight_decay = 1e-3
+grad_clip_norm = 1.0
 
 seed = 42
 print("Random Seed: ", seed)
@@ -145,13 +150,31 @@ criterion_phase = nn.CrossEntropyLoss(weight=torch.from_numpy(weights_train).flo
 criterion_reg = nn.SmoothL1Loss()
 # criterion_phase = nn.CrossEntropyLoss()
 
-model = mstcn.MultiStageModel_S(mstcn_stages, mstcn_layers, mstcn_f_maps, mstcn_f_dim, out_features,
-                                mstcn_causal_conv)  # mstcn_f_maps=32， mstcn_f_dim=2048
+model = mstcn.CausalMambaModel(mstcn_stages, mstcn_layers, mstcn_f_maps, mstcn_f_dim, out_features,
+                               mstcn_causal_conv)  # 新Mamba(严格单向因果)
+# model = mstcn.MultiStageModel_S(mstcn_stages, mstcn_layers, mstcn_f_maps, mstcn_f_dim, out_features,
+#                                 mstcn_causal_conv)  # 旧MS-TCN
 # model_path = 'evp_best_model/mit_b2/stage2_40_8_40/embedding1/'
 # model_name = 'TeCNOevp_epoch_14'
 # model.load_state_dict(torch.load(model_path + model_name + '.pth'))
 model.cuda()
-optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+# optimizer = optim.Adam(model.parameters(), lr=learning_rate)  # 旧优化器
+optimizer = optim.AdamW(
+    model.parameters(),
+    lr=learning_rate,
+    betas=(0.9, 0.999),
+    eps=1e-8,
+    weight_decay=weight_decay
+)  # 新优化器：更适合带正则的时序模型
+
+# 新增：验证精度停滞时自动降学习率
+scheduler = optim.lr_scheduler.ReduceLROnPlateau(
+    optimizer,
+    mode='max',
+    factor=0.5,
+    patience=3,
+    min_lr=1e-6
+)
 
 best_model_wts = copy.deepcopy(model.state_dict())
 best_val_accuracy_phase = 0.0
@@ -231,6 +254,8 @@ for epoch in range(max_epochs):
         loss = clc_loss + ant_loss
         # print(loss.data.cpu().numpy())
         loss.backward()
+        # optimizer.step()  # 旧写法
+        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=grad_clip_norm)
         optimizer.step()
 
         train_loss_phase += clc_loss.data.item()
@@ -522,6 +547,10 @@ for epoch in range(max_epochs):
     print("val_recall_phase", val_recall_phase)
     print("val_jaccard_phase", val_jaccard_phase)
 
+    # 新增：基于验证精度动态调学习率，并记录当前学习率
+    scheduler.step(val_accuracy_phase)
+    writer.add_scalar('training/lr', optimizer.param_groups[0]['lr'], epoch)
+
     if val_accuracy_phase > best_val_accuracy_phase:
         best_val_accuracy_phase = val_accuracy_phase
         best_test_accuracy_phase = test_accuracy_phase
@@ -539,5 +568,3 @@ for epoch in range(max_epochs):
                      + "_epoch_" + str(epoch)
     torch.save(model.state_dict(), "bimask_ss_pos/cholec80/stage2_40_40/TeCNO1-2/" + base_name_each + ".pth")
     print("best_epoch", str(best_epoch))
-
-
