@@ -137,7 +137,7 @@ learning_rate = 5e-4
 min_epochs = 12
 max_epochs = 50
 mstcn_layers = 8
-mstcn_f_maps = 32
+mstcn_f_maps = 64
 mstcn_f_dim = 2048
 mstcn_stages = 2
 horizon = 5
@@ -186,9 +186,11 @@ criterion_phase1 = nn.CrossEntropyLoss()
 criterion_reg = nn.SmoothL1Loss(reduction='mean')
 criterion_cls = nn.CrossEntropyLoss(weight=torch.from_numpy(weights_train).float().to(device))
 
-model = mstcn.MultiStageModel_S(mstcn_stages, mstcn_layers, mstcn_f_maps, mstcn_f_dim, out_features, mstcn_causal_conv)
+# model = mstcn.MultiStageModel_S(mstcn_stages, mstcn_layers, mstcn_f_maps, mstcn_f_dim, out_features, mstcn_causal_conv)  # 旧MS-TCN
+model = mstcn.CausalMambaModel(mstcn_stages, mstcn_layers, mstcn_f_maps, mstcn_f_dim, out_features, mstcn_causal_conv)  # 新Mamba(严格单向因果)
 model_path = 'bimask_ss_pos/cholec80/stage2_40_40/TeCNO1-2/'
-model_name = 'TeCNOevp_epoch_4'
+model_name = 'TeCNOevp_epoch_20'  # 方案1：由 tecno.py 训练得到的 Mamba 权重（与原MS-TCN同目录）
+# model_name = 'TeCNOevp_epoch_3'  # 旧MS-TCN权重命名（保留）
 model.load_state_dict(torch.load(model_path + model_name + '.pth'))
 model.cuda()
 model.eval()
@@ -261,7 +263,8 @@ for epoch in range(max_epochs):
         # #print(segmap_feature.size())
 
         # out_features 是 gt, long_feature 是 lt
-        out_features = model.forward(video_fe)[-1]  # out_features: Tensor(1, 14, 1976)
+        with torch.no_grad():
+            out_features = model.forward(video_fe)[-1]  # out_features: Tensor(1, 14, 1976)
         out_features = out_features.squeeze(1)  # 去除第二个位置如果是1的维度，从而减少张量的维数
 
         # todo 这里是transformer的入口
@@ -621,8 +624,8 @@ for epoch in range(max_epochs):
         best_model_wts = copy.deepcopy(model1.state_dict())
         best_epoch = epoch
 
-    save_val_phase = int("{:4.0f}".format(best_val_accuracy_phase * 10000))
-    save_train_phase = int("{:4.0f}".format(correspond_train_acc_phase * 10000))
+    save_val_phase = int("{:4.0f}".format(val_accuracy_phase * 10000))
+    save_train_phase = int("{:4.0f}".format(train_accuracy_phase * 10000))
     base_name = "TeCNOevp_trans1_3_5_1" \
                 + "_length_" + str(sequence_length) \
                 + "_epoch_" + str(epoch) \
@@ -630,6 +633,13 @@ for epoch in range(max_epochs):
                 + "_val_" + str(save_val_phase)
     torch.save(model1.state_dict(), "bimask_ss_pos/cholec80/stage2_40_40/TeCNO_t1-2/" + base_name + ".pth")
     print("best_epoch", str(best_epoch))
+
+
+
+
+
+
+
 
 
 
