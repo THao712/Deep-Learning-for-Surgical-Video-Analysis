@@ -305,12 +305,24 @@ class Transformer(nn.Module):
         self.dim = mstcn_f_dim  # 2048
         self.num_classes = out_features  # 7*2=14
         self.len_q = len_q
+        # 控制一次送入注意力的样本数，降低峰值显存。
+        self.chunk_size = 256
 
         # self.adaptor1 = Adaptor(mstcn_f_dim)  # lt的adaptor
         # self.adaptor2 = Adaptor(out_features * len_q)  # gt的adaptor
 
-        self.transformer = Transformer2_3_1(d_model=out_features, d_ff=mstcn_f_maps, d_k=mstcn_f_maps,
-                                        d_v=mstcn_f_maps, n_layers=1, n_heads=8, len_q = sequence_length)
+        # 注意力维度与Mamba隐藏维解耦，避免 d_k=d_v=512 时显存爆炸。
+        attn_dim = min(64, self.num_f_maps)
+        n_heads = 4
+        self.transformer = Transformer2_3_1(
+            d_model=out_features,
+            d_ff=self.num_f_maps,
+            d_k=attn_dim,
+            d_v=attn_dim,
+            n_layers=1,
+            n_heads=n_heads,
+            len_q=sequence_length
+        )
 
         self.fc = nn.Linear(mstcn_f_dim, out_features, bias=False)
 
